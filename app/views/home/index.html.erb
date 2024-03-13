@@ -1,4 +1,14 @@
 <div>
-  <h1 class="font-bold text-4xl">Home#index</h1>
-  <p>Find me in app/views/home/index.html.erb</p>
+  <h1>Simply Always Awake Community Locator</h1>
 </div>
+
+<% if user_signed_in? %>
+  <%= link_to 'Sign out', destroy_user_session_path, data: { "turbo-method": :delete } %>
+<% else %>
+  <div>
+    <%= link_to "Don't have an account? Sign up", new_user_registration_path %>
+  </div>
+  <div>
+    <%= link_to 'Already have an account? Sign in', new_user_session_path %>
+  </div>
+<% end %>

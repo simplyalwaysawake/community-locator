@@ -8,14 +8,15 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= javascript_importmap_tags %>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%# <main class="container mx-auto mt-28 px-5 flex"> %>
+    <main>
       <%= yield %>
     </main>
   </body>
