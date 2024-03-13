@@ -59,7 +59,7 @@ Most notable libraries and services used by the app:
 
 # Deployment
 
-There is an instance of the app running on [Heroku](https://heroku.com) at https://community-locator-b0b7e3176ea5.herokuapp.com/.
+There is an instance of the app running on [Heroku](https://heroku.com) at https://community-locator.haberman.dev.
 
 The app is automatically deployed when one or more new commits are pushed to the [main branch on GitHub](https://github.com/jeremyhaberman/community-locator).
 
