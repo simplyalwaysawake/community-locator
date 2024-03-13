@@ -20,6 +20,16 @@ Run the setup script:
 bin/setup
 ```
 
+### Configure Mailersend
+
+Three environment variables need to be set for Mailersend to work:
+
+- `HOST` (e.g. localhost:3000)
+- `MAILERSEND_SMTP_USERNAME`
+- `MAILERSEND_SMTP_PASSWORD`
+
+The username and password are too sensitive to store in the repo. Contact jeremy@haberman.dev for details.
+
 ## Running the app
 
 The app uses a Procfile. In a development environment this takes care of:
@@ -41,10 +51,11 @@ bin/rails test
 
 # Libraries
 
-Most notable libraries used by the app:
+Most notable libraries and services used by the app:
 
 - [Devise](https://github.com/heartcombo/devise) – authentication
 - [TailwindCSS](https://github.com/rails/tailwindcss-rails) - styling
+- [Mailersend](https://mailersend.com) – email
 
 # Deployment
 
