@@ -1,24 +1,55 @@
-# README
+# Community Locator
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is Rails app that allows users to find people near them who are interested in waking up.
 
-Things you may want to cover:
+# Getting Started
 
-* Ruby version
+## Prerequisites
 
-* System dependencies
+Requirements for the software and other tools to build, test and push:
 
-* Configuration
+- [ruby 3.2.3](https://www.ruby-lang.org/en/)
+- [SQLite 3.8.0+](https://www.sqlite.org/)
+- [Foreman](https://github.com/ddollar/foreman)
 
-* Database creation
+## Setup
 
-* Database initialization
+Run the setup script:
 
-* How to run the test suite
+```sh
+bin/setup
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Running the app
 
-* Deployment instructions
+The app uses a Procfile. In a development environment this takes care of:
 
-* ...
+- Running the Rails app: `web: bin/rails server`
+- Start live CSS rebuilds: `bin/rails tailwindcss:watch`
+
+Run the app:
+
+```sh
+$ bin/dev
+```
+
+## Running the tests
+
+```sh
+bin/rails test
+```
+
+# Libraries
+
+Most notable libraries used by the app:
+
+- [Devise](https://github.com/heartcombo/devise) – authentication
+- [TailwindCSS](https://github.com/rails/tailwindcss-rails) - styling
+
+# Deployment
+
+TODO
+
+# License
+
+MIT
