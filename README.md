@@ -9,7 +9,7 @@ This is Rails app that allows users to find people near them who are interested 
 Requirements for the software and other tools to build, test and push:
 
 - [ruby 3.2.3](https://www.ruby-lang.org/en/)
-- [SQLite 3.8.0+](https://www.sqlite.org/)
+- [PostgreSQL](https://www.postgresql.org/)
 - [Foreman](https://github.com/ddollar/foreman)
 
 ## Setup
