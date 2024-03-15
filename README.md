@@ -52,6 +52,20 @@ make sure to run all the tests:
 bin/rails test:all
 ```
 
+## Contributing
+
+### Testing
+
+Models, controllers, helpers, etc. should have reasonable unit and integration test coverage.
+
+System tests should cover the essential, "happy-path" use cases.
+
+See the [Rails testing guide](https://guides.rubyonrails.org/testing.html) for details.
+
+### Branches, commits and merges
+
+Avoid committing directly to the `main` branch. Use branches and pull requests for getting commits into `main`.
+
 # Libraries
 
 Most notable libraries and services used by the app:
