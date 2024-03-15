@@ -20,16 +20,6 @@ Run the setup script:
 bin/setup
 ```
 
-### Configure Mailersend
-
-Three environment variables need to be set for Mailersend to work:
-
-- `HOST` (e.g. localhost:3000)
-- `MAILERSEND_SMTP_USERNAME`
-- `MAILERSEND_SMTP_PASSWORD`
-
-The username and password are too sensitive to store in the repo. Contact jeremy@haberman.dev for details.
-
 ## Running the app
 
 The app uses a Procfile. In a development environment this takes care of:
@@ -65,6 +55,22 @@ See the [Rails testing guide](https://guides.rubyonrails.org/testing.html) for d
 ### Branches, commits and merges
 
 Avoid committing directly to the `main` branch. Use branches and pull requests for getting commits into `main`.
+
+### Email
+
+Mailersend is used in production, but it is disabled in development. Emails sent in
+a local dev environment appear in the log.
+
+If you want to use Mailersend locally,
+
+1. Un-comment-out the section that configures Mailersend in config/environments/development.rb.
+2. Set three environment variables:
+
+- `HOST` (e.g. localhost:3000)
+- `MAILERSEND_SMTP_USERNAME`
+- `MAILERSEND_SMTP_PASSWORD`
+
+The username and password are too sensitive to store in the repo. Contact jeremy@haberman.dev for details.
 
 # Libraries
 
