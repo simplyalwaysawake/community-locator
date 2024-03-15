@@ -45,8 +45,11 @@ $ bin/dev
 
 ## Running the tests
 
+We do not yet have tests running in any pipelines. Before opening a pull request or merging to main,
+make sure to run all the tests:
+
 ```sh
-bin/rails test
+bin/rails test:all
 ```
 
 # Libraries
