@@ -1,0 +1,10 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: test1
+  city: New York
+  state: NY
+  country: USA
+  postal_code: 10001
+  latitude: 40.7
+  longitude: 74.0

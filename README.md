@@ -45,9 +45,26 @@ $ bin/dev
 
 ## Running the tests
 
+We do not yet have tests running in any pipelines. Before opening a pull request or merging to main,
+make sure to run all the tests:
+
 ```sh
-bin/rails test
+bin/rails test:all
 ```
+
+## Contributing
+
+### Testing
+
+Models, controllers, helpers, etc. should have reasonable unit and integration test coverage.
+
+System tests should cover the essential, "happy-path" use cases.
+
+See the [Rails testing guide](https://guides.rubyonrails.org/testing.html) for details.
+
+### Branches, commits and merges
+
+Avoid committing directly to the `main` branch. Use branches and pull requests for getting commits into `main`.
 
 # Libraries
 
