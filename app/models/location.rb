@@ -2,6 +2,8 @@ class Location < ApplicationRecord
   belongs_to :user
   before_validation :sanitize_fields
   validate :user_does_not_already_have_a_location, on: :create
+  geocoded_by :address
+  after_validation :geocode
 
   def address
     address = [city, state, country].reject { |p| p.to_s.empty? }.join(", ")

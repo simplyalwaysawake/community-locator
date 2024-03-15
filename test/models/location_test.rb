@@ -109,4 +109,40 @@ class LocationTest < ActiveSupport::TestCase
     assert_equal "USA", location.country
     assert_equal "55101", location.postal_code
   end
+
+  test "should geolocate address" do
+    Geocoder::Lookup::Test.add_stub(
+      "Minneapolis, MN, United States 55439",
+      [{ 'coordinates'  => [44.86747, -93.35977] }]
+    )
+    location = Location.create({
+      city: "Minneapolis",
+      state: "MN",
+      country: "United States",
+      postal_code: "55439"
+    })
+
+    assert_equal 44.86747, location.latitude
+    assert_equal -93.35977, location.longitude
+  end
+
+  test "should re-geolocate address on update" do
+    location = locations(:new_york)
+    assert_not_equal 44.86747, location.latitude
+    assert_not_equal -93.35977, location.longitude
+
+    Geocoder::Lookup::Test.add_stub(
+      "Minneapolis, MN, United States 55439",
+      [{ 'coordinates'  => [44.86747, -93.35977] }]
+    )
+    location.update({
+      city: "Minneapolis",
+      state: "MN",
+      country: "United States",
+      postal_code: "55439"
+    })
+
+    assert_equal 44.86747, location.latitude
+    assert_equal -93.35977, location.longitude
+  end
 end
