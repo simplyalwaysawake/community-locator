@@ -30,7 +30,7 @@ class LocationsTest < ApplicationSystemTestCase
     assert_link "Sign out"
   end
 
-  test "should update Location" do
+  test "should update location" do
     # User test1 already has a location
     sign_in users(:test1)
     visit root_url
