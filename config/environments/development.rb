@@ -43,18 +43,18 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  # ActionMailer
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: ENV['HOST'] }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :address   => 'smtp.mailersend.net',
-    :port      => 587,
-    :user_name => ENV['MAILERSEND_SMTP_USERNAME'],
-    :password  => ENV['MAILERSEND_SMTP_PASSWORD'],
-    :authentication => :login,
-    :starttls => true
-  }
+  # Un-comment-out this section to use Mailersend in your local dev environment
+  # config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default_url_options = { host: ENV['HOST'] }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   :address   => 'smtp.mailersend.net',
+  #   :port      => 587,
+  #   :user_name => ENV['MAILERSEND_SMTP_USERNAME'],
+  #   :password  => ENV['MAILERSEND_SMTP_PASSWORD'],
+  #   :authentication => :login,
+  #   :starttls => true
+  # }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
