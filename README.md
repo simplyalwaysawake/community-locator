@@ -20,6 +20,15 @@ Run the setup script:
 bin/setup
 ```
 
+Set an environment variable for the HERE API key. Create a file named **.env.development** in the root of the repo,
+and add a line for the key:
+
+```env
+HERE_API_KEY="XXXXXXXXXX"
+```
+
+Contact jeremy@haberman.dev to get the value for the key.
+
 ## Running the app
 
 The app uses a Procfile. In a development environment this takes care of:
@@ -64,13 +73,23 @@ a local dev environment appear in the log.
 If you want to use Mailersend locally,
 
 1. Un-comment-out the section that configures Mailersend in config/environments/development.rb.
-2. Set three environment variables:
+2. Add three environment variables to **.env.development**:
 
 - `HOST` (e.g. localhost:3000)
 - `MAILERSEND_SMTP_USERNAME`
 - `MAILERSEND_SMTP_PASSWORD`
 
-The username and password are too sensitive to store in the repo. Contact jeremy@haberman.dev for details.
+Contact jeremy@haberman.dev for the username and password.
+
+### Geolocation
+
+The app uses the [geocoder](https://github.com/alexreisner/geocoder) gem for geocoding.
+
+See the [Location](app/models/location.rb) model and the [geocoder](config/initializers/geocoder.rb) initializer for how that's wired up.
+
+In a test environment, the lookup service is `:test`, which hard-codes lookup results.
+
+In development and production, it uses [HERE](https://developer.here.com/). You will need to
 
 # Libraries
 
@@ -79,6 +98,7 @@ Most notable libraries and services used by the app:
 - [Devise](https://github.com/heartcombo/devise) – authentication
 - [TailwindCSS](https://github.com/rails/tailwindcss-rails) - styling
 - [Mailersend](https://mailersend.com) – email
+- [HERE]()
 
 # Deployment
 

@@ -4,7 +4,7 @@ class LocationsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   setup do
-    @location = locations(:one)
+    @location = locations(:new_york)
   end
 
   test "should get index" do
