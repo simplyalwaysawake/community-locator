@@ -52,6 +52,9 @@ gem 'bootsnap', require: false
 gem 'devise', '~> 4.9'
 gem 'geocoder', '~> 1.8'
 
+gem 'rubocop', '~> 1.62'
+gem 'rubocop-rails'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
@@ -72,7 +75,5 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
-  gem 'rubocop', '~> 1.62'
-  gem 'rubocop-rails'
   gem 'selenium-webdriver'
 end
