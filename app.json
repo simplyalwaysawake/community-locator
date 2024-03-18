@@ -5,6 +5,7 @@
     "test": {
       "addons": ["heroku-postgresql:in-dyno"],
       "scripts": {
+        "test-setup": "bundle install",
         "test": "bundle exec rake validate"
       }
     }
