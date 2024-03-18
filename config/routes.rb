@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   post "location" => "locations#create"
   patch "location" => "locations#update"
   resolve('Location') { [:location] }
+
+  get "community" => "community#show"
 end

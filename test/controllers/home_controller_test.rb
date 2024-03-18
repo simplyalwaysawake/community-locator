@@ -3,28 +3,15 @@ require "test_helper"
 class HomeControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
-  test "redirects to sign in page when not logged in" do
+  test "shows sign up and sign in links if not signed in" do
     get home_show_url
-    assert_redirected_to new_user_session_path
+    assert_select "a", "Sign up"
+    assert_select "a", "Sign in"
   end
 
-  test "shows sign out link when signed in" do
+  test "redirects to community path if signed in" do
     result = sign_in users(:test1)
     get home_show_url
-    assert_response :success
-    assert_select "a", "Sign out"
-  end
-
-  test "redirects to location path if user has no location" do
-    result = sign_in users(:test2)
-    get home_show_url
-    assert_redirected_to location_path
-  end
-
-  test "shows community if user has location" do
-    sign_in users(:test1)
-    get home_show_url
-    assert_response :success
-    assert_select "li", "user3@example.com (Newark, NJ)"
+    assert_redirected_to community_path
   end
 end

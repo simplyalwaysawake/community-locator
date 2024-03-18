@@ -2,28 +2,9 @@
   <h1>Simply Always Awake Community Locator</h1>
 </div>
 
-<div>
-  <h1>My Community</h1>
+<div class="rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium">
+  <%= link_to "Sign up", new_user_registration_path %>
 </div>
-
-<% if @community.empty? %>
-  <div>There are currently no people in your area.</div>
-<% else %>
-  <div>
-    <%= render 'list' %>
-  </div>
-<% end %>
-
-<% if user_signed_in? %>
-  <%= link_to "Edit location", location_path, class: "rounded-lg m-2 py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-  <div>
-    <%= link_to 'Sign out', destroy_user_session_path, data: { "turbo-method": :delete }, class: "rounded-lg py-3 m-2 px-5 bg-gray-100 inline-block font-medium" %>
-  </div>
-<% else %>
-  <div class="rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium">
-    <%= link_to "Sign up", new_user_registration_path %>
-  </div>
-  <div class="rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium">
-    <%= link_to 'Sign in', new_user_session_path %>
-  </div>
-<% end %>
+<div class="rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium">
+  <%= link_to 'Sign in', new_user_session_path %>
+</div>
