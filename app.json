@@ -3,7 +3,10 @@
   "addons": ["heroku-postgresql:mini"],
   "environments": {
     "test": {
-      "addons": ["heroku-postgresql:in-dyno"]
+      "addons": ["heroku-postgresql:in-dyno"],
+      "scripts": {
+        "test": "bundle exec rake validate"
+      }
     }
   }
 }

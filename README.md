@@ -42,13 +42,30 @@ Run the app:
 $ bin/dev
 ```
 
-## Running the tests
+## Running the tests (and rubocop)
 
-We do not yet have tests running in any pipelines. Before opening a pull request or merging to main,
-make sure to run all the tests:
+[RuboCop](https://github.com/rubocop/rubocop) is used for static code analysis and formatting. To run it:
 
 ```sh
-bin/rails test:all
+rake rubocop
+```
+
+To run all the tests (except for system tests):
+
+```sh
+rake test
+```
+
+To run rubocop and tests:
+
+```sh
+rake validate
+```
+
+To run all tests, including system tests:
+
+```sh
+rake test:all
 ```
 
 ## Contributing
@@ -65,7 +82,7 @@ See the [Rails testing guide](https://guides.rubyonrails.org/testing.html) for d
 
 Avoid committing directly to the `main` branch. Use branches and pull requests for getting commits into `main`.
 
-Tests run automatically with each pull request (except for system tests).
+Tests run automatically with each pull request (except for system tests). RuboCop runs too.
 
 After you create a pull request, you will have the option to deploy a Heroku ["review app."](https://devcenter.heroku.com/articles/github-integration-review-apps). This is a great way to test changes in a production-like environment before merging your changes.
 

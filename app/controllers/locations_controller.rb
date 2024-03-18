@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LocationsController < ApplicationController
   before_action :authenticate_user!
 
@@ -10,7 +12,7 @@ class LocationsController < ApplicationController
     @location.user = current_user
 
     if @location.save
-      redirect_to root_path, notice: "Location saved."
+      redirect_to root_path, notice: I18n.t('location_saved')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -19,7 +21,7 @@ class LocationsController < ApplicationController
   def update
     @location = current_user.location
     if @location.update(location_params)
-      redirect_to root_path, notice: "Location saved."
+      redirect_to root_path, notice: I18n.t('location_saved')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -27,7 +29,7 @@ class LocationsController < ApplicationController
 
   private
 
-    def location_params
-      params.require(:location).permit(:city, :state, :country, :postal_code)
-    end
+  def location_params
+    params.require(:location).permit(:city, :state, :country, :postal_code)
+  end
 end
