@@ -6,6 +6,7 @@ AllCops:
     - bin/*
     - db/schema.rb
     - gemfiles/vendor/bundle/**/*
+    - vendor/bundle/**/*
   SuggestExtensions: false
 
 Style/Documentation:
