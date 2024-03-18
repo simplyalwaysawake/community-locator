@@ -7,6 +7,10 @@ AllCops:
     - db/schema.rb
     - gemfiles/vendor/bundle/**/*
     - vendor/bundle/**/*
+    - node_modules/**/*
+    - tmp/**/*
+    - vendor/**/*
+    - .git/**/*
   SuggestExtensions: false
 
 Style/Documentation:
