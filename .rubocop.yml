@@ -1,8 +1,11 @@
+require: rubocop-rails
+
 AllCops:
   NewCops: enable
   Exclude:
-    - "bin/*"
-    - "db/schema.rb"
+    - bin/*
+    - db/schema.rb
+    - gemfiles/vendor/bundle/**/*
   SuggestExtensions: false
 
 Style/Documentation:
