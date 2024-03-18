@@ -2,6 +2,18 @@
   <h1>Simply Always Awake Community Locator</h1>
 </div>
 
+<div>
+  <h1>My Community</h1>
+</div>
+
+<% if @community.empty? %>
+  <div>There are currently no people in your area.</div>
+<% else %>
+  <div>
+    <%= render 'list' %>
+  </div>
+<% end %>
+
 <% if user_signed_in? %>
   <%= link_to "Edit location", location_path, class: "rounded-lg m-2 py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
   <div>

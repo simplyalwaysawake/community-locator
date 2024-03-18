@@ -1,0 +1,7 @@
+<div>
+  <ul>
+    <% @community.each do |user| %>
+      <li><%= "#{user.email} (#{short_address(user.location)})" %></li>
+    <% end %>
+  </ul>
+</div>

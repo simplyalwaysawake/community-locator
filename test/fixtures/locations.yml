@@ -6,5 +6,23 @@ new_york:
   state: NY
   country: USA
   postal_code: 10001
-  latitude: 40.7
-  longitude: 74.0
+  latitude: 40.6973709
+  longitude: -74.1444873
+
+newark:
+  user: user3
+  city: Newark
+  state: NJ
+  country: USA
+  postal_code: 07101
+  latitude: 40.7312542
+  longitude: -74.2644557
+
+albany:
+  user: user4
+  city: Albany
+  state: NY
+  country: USA
+  postal_code: 12084
+  latitude: 42.6680844
+  longitude: -73.810681

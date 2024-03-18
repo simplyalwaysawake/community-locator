@@ -15,3 +15,15 @@ test2:
   encrypted_password: <%= User.new.send(:password_digest, 'password2') %>
   confirmed_at: <%= Time.zone.now - 1.minute %>
   confirmation_sent_at: <%= Time.zone.now - 2.minutes %>
+
+user3:
+  email: "user3@example.com"
+  encrypted_password: <%= User.new.send(:password_digest, 'password3') %>
+  confirmed_at: <%= Time.zone.now - 1.minute %>
+  confirmation_sent_at: <%= Time.zone.now - 2.minutes %>
+
+user4:
+  email: "user4@example.com"
+  encrypted_password: <%= User.new.send(:password_digest, 'password4') %>
+  confirmed_at: <%= Time.zone.now - 1.minute %>
+  confirmation_sent_at: <%= Time.zone.now - 2.minutes %>

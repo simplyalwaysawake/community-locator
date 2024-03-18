@@ -1,5 +1,6 @@
 {
   "buildpacks": [{ "url": "heroku/ruby" }],
+  "addons": ["heroku-postgresql:mini"],
   "environments": {
     "test": {
       "addons": ["heroku-postgresql:in-dyno"]

@@ -61,9 +61,13 @@ System tests should cover the essential, "happy-path" use cases.
 
 See the [Rails testing guide](https://guides.rubyonrails.org/testing.html) for details.
 
-### Branches, commits and merges
+### Pull requests
 
 Avoid committing directly to the `main` branch. Use branches and pull requests for getting commits into `main`.
+
+Tests run automatically with each pull request (except for system tests).
+
+After you create a pull request, you will have the option to deploy a Heroku ["review app."](https://devcenter.heroku.com/articles/github-integration-review-apps). This is a great way to test changes in a production-like environment before merging your changes.
 
 ### Email
 
