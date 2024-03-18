@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Location < ApplicationRecord
   belongs_to :user
   before_validation :sanitize_fields
@@ -6,7 +8,7 @@ class Location < ApplicationRecord
   after_validation :geocode
 
   def address
-    address = [city, state, country].reject { |p| p.to_s.empty? }.join(", ")
+    address = [city, state, country].reject { |p| p.to_s.empty? }.join(', ')
     address += " #{postal_code}" if postal_code.present?
     address
   end
@@ -14,15 +16,15 @@ class Location < ApplicationRecord
   private
 
   def sanitize_fields
-    self.city = city.strip if city.present?
-    self.state = state.strip if state.present?
-    self.country = country.strip if country.present?
-    self.postal_code = postal_code.strip if postal_code.present?
+    self.city = city&.strip
+    self.state = state&.strip
+    self.country = country&.strip
+    self.postal_code = postal_code&.strip
   end
 
   def user_does_not_already_have_a_location
-    if Location.where(user: user).count >= 1
-      errors.add(:base, "User already has a location")
-    end
+    return unless Location.where(user:).count >= 1
+
+    errors.add(:base, 'User already has a location')
   end
 end

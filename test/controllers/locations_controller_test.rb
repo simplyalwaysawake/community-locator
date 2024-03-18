@@ -1,4 +1,6 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class LocationsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
@@ -7,17 +9,17 @@ class LocationsControllerTest < ActionDispatch::IntegrationTest
     @location = locations(:new_york)
   end
 
-  test "should get index" do
+  test 'should get index' do
     sign_in users(:test1)
     get location_url
     assert_response :success
   end
 
-  test "should create location" do
+  test 'should create location' do
     user = users(:test2)
     sign_in user
-    refute user.location
-    
+    assert_not user.location
+
     params = {
       location: {
         city: @location.city,
@@ -27,28 +29,28 @@ class LocationsControllerTest < ActionDispatch::IntegrationTest
       }
     }
 
-    post location_url, params: params
+    post(location_url, params:)
     assert user.location
 
     assert_redirected_to root_path
   end
 
-  test "should update location" do
+  test 'should update location' do
     user = users(:test1)
     sign_in user
     patch location_url, params: {
       location: {
-        city: "Updated city",
-        state: "Updated state",
-        country: "Updated country",
-        postal_code: "Updated postal code"
+        city: 'Updated city',
+        state: 'Updated state',
+        country: 'Updated country',
+        postal_code: 'Updated postal code'
       }
     }
 
-    assert_equal "Updated city", user.location.city
-    assert_equal "Updated state", user.location.state
-    assert_equal "Updated country", user.location.country
-    assert_equal "Updated postal code", user.location.postal_code
+    assert_equal 'Updated city', user.location.city
+    assert_equal 'Updated state', user.location.state
+    assert_equal 'Updated country', user.location.country
+    assert_equal 'Updated postal code', user.location.postal_code
 
     assert_redirected_to root_path
   end
