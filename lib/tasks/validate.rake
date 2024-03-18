@@ -2,7 +2,7 @@
 
 require 'rubocop/rake_task'
 
-desc 'Run tests and rubocop'
+desc 'Run rubocop and tests'
 task validate: :environment do
   Rake::Task['rubocop'].invoke
   Rake::Task['test'].invoke
