@@ -5,7 +5,8 @@
     "test": {
       "addons": ["heroku-postgresql:in-dyno"],
       "scripts": {
-        "test": "rake validate"
+        "test-setup": "gem install rubocop rubocop-rails",
+        "test": "rubocop .; rails test"
       }
     }
   }
