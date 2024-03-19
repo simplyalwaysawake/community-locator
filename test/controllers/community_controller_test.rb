@@ -23,7 +23,19 @@ class CommunityControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to location_path
   end
 
-  test 'shows community if user has location' do
+  test 'redirects to slimmed-down registration edit path if user has location but no name' do
+    sign_in users(:user3)
+    get community_url
+    assert_redirected_to edit_user_registration_path(nil, welcome: true)
+  end
+
+  test 'redirects to slimmed-down registration edit path if user has no name nor location' do
+    sign_in users(:user5)
+    get community_url
+    assert_redirected_to edit_user_registration_path(nil, welcome: true)
+  end
+
+  test 'shows community if user has location and name' do
     sign_in users(:test1)
     get community_url
     assert_response :success

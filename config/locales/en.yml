@@ -30,3 +30,4 @@
 en:
   hello: "Hello world"
   location_saved: "Location saved"
+  profile_updated: 'Profile updated'

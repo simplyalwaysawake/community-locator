@@ -2,7 +2,7 @@
 
 require 'application_system_test_case'
 
-class LocationsTest < ApplicationSystemTestCase
+class SystemTest < ApplicationSystemTestCase
   include Devise::Test::IntegrationHelpers
 
   setup do
@@ -19,15 +19,24 @@ class LocationsTest < ApplicationSystemTestCase
     fill_in 'Password', with: 'password2'
     click_on 'Log in'
 
+    # Enter name and telegram
+    fill_in 'Name', with: 'John Doe'
+    fill_in 'Telegram', with: 'johndoe'
+    click_on 'Next'
+
     # Enter location
-    fill_in 'City', with: 'Omaha'
-    fill_in 'State', with: 'NE'
+    fill_in 'City', with: 'New York'
+    fill_in 'State', with: 'NY'
     fill_in 'Country', with: 'United States'
-    fill_in 'Postal code', with: '68007'
+    fill_in 'Postal code', with: '10002'
     click_on 'Save'
 
-    # We should be back on the home screen
+    # We should be back on the community screen
     assert_text 'Simply Always Awake Community Locator'
+
+    assert_text 'user3@example.com (Newark, NJ)'
+    assert_text 'test1@example.com (New York, NY)'
+
     assert_link 'Edit location'
     assert_link 'Sign out'
   end

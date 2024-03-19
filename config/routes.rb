@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   get 'home/show'
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
 
   get 'location' => 'locations#edit'
   post 'location' => 'locations#create'
