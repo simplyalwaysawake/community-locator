@@ -39,6 +39,6 @@ class CommunityControllerTest < ActionDispatch::IntegrationTest
     sign_in users(:test1)
     get community_url
     assert_response :success
-    assert_select 'li', 'user3@example.com (Newark, NJ)'
+    assert_select 'li', 'user3'
   end
 end

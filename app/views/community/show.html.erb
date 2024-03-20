@@ -9,17 +9,15 @@
 <% if @community.empty? %>
   <div>There are currently no people in your area.</div>
 <% else %>
-  <div>
+  <div class="mt-4 mb-8">
     <%= render 'list' %>
   </div>
 <% end %>
 
 <div>
-  <%= link_to "Edit profile", edit_user_registration_path, class: "rounded-lg m-2 py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to "Edit profile", edit_user_registration_path, class: "rounded-lg my-2 py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to "Edit location", location_path, class: "rounded-lg my-2 py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
 </div>
 <div>
-  <%= link_to "Edit location", location_path, class: "rounded-lg m-2 py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-</div>
-<div>
-  <%= link_to 'Sign out', destroy_user_session_path, data: { "turbo-method": :delete }, class: "rounded-lg py-3 m-2 px-5 bg-gray-100 inline-block font-medium" %>
+  <%= link_to 'Sign out', destroy_user_session_path, data: { "turbo-method": :delete }, class: "rounded-lg py-3 my-2 px-5 bg-gray-100 inline-block font-medium" %>
 </div>
