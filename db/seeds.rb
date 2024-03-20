@@ -12,13 +12,13 @@ john_doe = User.where(email: 'john.doe@example.com').first_or_create do |user|
   user.confirmed_at = Time.zone.now
 
   user.location = Location.new(
-  {
-    city: 'Minneapolis',
-    state: 'MN',
-    country: 'United States',
-    postal_code: '55401'
-  }
-)
+    {
+      city: 'Minneapolis',
+      state: 'MN',
+      country: 'United States',
+      postal_code: '55401'
+    }
+  )
 end
 
 john_doe.save!
