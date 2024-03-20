@@ -7,6 +7,11 @@
       "scripts": {
         "test": "bundle exec rake validate"
       }
+    },
+    "review": {
+      "scripts": {
+        "postdeploy": "bundle exec rake db:seed"
+      }
     }
   }
 }

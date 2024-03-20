@@ -1,7 +1,13 @@
 <div>
   <ul>
-    <% @community.each do |user| %>
-      <li><%= "#{user.email} (#{short_address(user.location)})" %></li>
+    <% @community.each do |user| %>      
+      <li>
+        <ul class="mt-6">
+          <li class="font-bold"><%= display_name(user) %></li>
+          <li class="ml-4"><%= short_address(user.location) %></li>
+          <li class="ml-4"><%= user.email %></li>
+        </ul>
+      </li>
     <% end %>
   </ul>
 </div>

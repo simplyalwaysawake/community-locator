@@ -8,4 +8,8 @@ class User < ApplicationRecord
          :trackable
 
   has_one :location, dependent: :destroy
+
+  def password_required?
+    new_record? || password.present?
+  end
 end
