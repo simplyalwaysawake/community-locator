@@ -10,13 +10,13 @@ class LocationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
-    sign_in users(:test1)
+    sign_in users(:john_doe)
     get location_url
     assert_response :success
   end
 
   test 'should create location' do
-    user = users(:test2)
+    user = users(:jane_doe)
     sign_in user
     assert_not user.location
 
@@ -36,7 +36,7 @@ class LocationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update location' do
-    user = users(:test1)
+    user = users(:john_doe)
     sign_in user
     patch location_url, params: {
       location: {

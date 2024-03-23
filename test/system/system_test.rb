@@ -10,8 +10,8 @@ class SystemTest < ApplicationSystemTestCase
   end
 
   test 'should sign in and create location' do
-    # User test2 is registered but doesn't have a location
-    user = users(:test2)
+    # User jane_doe is registered but doesn't have a location
+    user = users(:jane_doe)
 
     # Sign in
     visit new_user_session_path
@@ -34,16 +34,17 @@ class SystemTest < ApplicationSystemTestCase
     # We should be back on the community screen
     assert_text 'Simply Always Awake Community Locator'
 
-    assert_text 'user3@example.com (Newark, NJ)'
-    assert_text 'test1@example.com (New York, NY)'
+    assert_text 'John Doe'
+    assert_text 'New York, NY'
+    assert_text 'john.doe@example.com'
 
     assert_link 'Edit location'
     assert_link 'Sign out'
   end
 
   test 'should update location' do
-    # User test1 already has a location
-    sign_in users(:test1)
+    # User john_doe already has a location
+    sign_in users(:john_doe)
     visit root_url
 
     click_on 'Edit location', match: :first
