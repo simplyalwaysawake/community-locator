@@ -11,14 +11,14 @@ class CommunityControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'shows sign out link when signed in' do
-    sign_in users(:test1)
+    sign_in users(:john_doe)
     get community_url
     assert_response :success
     assert_select 'a', 'Sign out'
   end
 
   test 'redirects to location path if user has no location' do
-    sign_in users(:test2)
+    sign_in users(:greg_anderson)
     get community_url
     assert_redirected_to location_path
   end
@@ -36,7 +36,7 @@ class CommunityControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'shows community if user has location and name' do
-    sign_in users(:test1)
+    sign_in users(:john_doe)
     get community_url
     assert_response :success
     assert_select 'li', 'user3'

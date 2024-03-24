@@ -5,7 +5,7 @@ require 'test_helper'
 class LocationTest < ActiveSupport::TestCase # rubocop:disable Metrics/ClassLength
   test 'should create a location' do
     assert Location.create(
-      user: users(:test2),
+      user: users(:jane_doe),
       city: 'New York',
       state: 'NY',
       country: 'USA',
@@ -14,7 +14,7 @@ class LocationTest < ActiveSupport::TestCase # rubocop:disable Metrics/ClassLeng
   end
 
   test 'should update a location' do
-    user = users(:test1)
+    user = users(:john_doe)
     assert user.location.update({
                                   city: 'Los Angeles',
                                   state: 'CA',
@@ -29,7 +29,7 @@ class LocationTest < ActiveSupport::TestCase # rubocop:disable Metrics/ClassLeng
   end
 
   test 'should not allow more than one location for a user' do
-    user = users(:test1)
+    user = users(:john_doe)
     assert user.location
 
     location = Location.new(

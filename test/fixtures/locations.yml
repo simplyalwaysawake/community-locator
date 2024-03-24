@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 new_york:
-  user: test1
+  user: john_doe
   city: New York
   state: NY
   country: USA

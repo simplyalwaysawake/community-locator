@@ -12,7 +12,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'redirects to community path if signed in' do
-    sign_in users(:test1)
+    sign_in users(:john_doe)
     get home_show_url
     assert_redirected_to community_path
   end
