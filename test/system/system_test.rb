@@ -22,7 +22,7 @@ class SystemTest < ApplicationSystemTestCase
     click_on 'Sign up'
 
     # We should be on the sign in page with a message about confirming the email
-    assert_text 'Log in'
+    assert_text 'Sign in'
     assert_text 'A message with a confirmation link has been sent to your email address'
 
     # Confirm email
@@ -33,7 +33,7 @@ class SystemTest < ApplicationSystemTestCase
     visit new_user_session_path
     fill_in 'Email', with: email
     fill_in 'Password', with: password
-    click_on 'Log in'
+    click_on 'Sign in'
 
     # Enter name and telegram
     fill_in 'Name', with: 'John Doe'
