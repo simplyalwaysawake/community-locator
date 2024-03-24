@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full">
   <head>
     <title>CommunityLocator</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -8,17 +8,24 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <!-- <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %> -->
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <main>
-      <div class="m-8">
-        <%= yield %>
+  <body class="h-full bg-gray-50">
+    <%= render "application/flash_messages" %>
+    <div class="min-h-full">
+      <% if user_signed_in? %>
+        <p>Logged in as <%= current_user.email %></p>
+      <% end %>
+
+      <div class="py-10">
+        <main>
+          <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <%= yield %>
+          </div>
+        </main>
       </div>
-    </main>
+    </div>
   </body>
 </html>

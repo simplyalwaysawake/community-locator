@@ -2,7 +2,7 @@
 
 module Users
   class RegistrationsController < Devise::RegistrationsController
-    before_action :configure_sign_up_params, only: [:create] # rubocop:disable Rails/LexicallyScopedActionFilter
+    before_action :configure_sign_up_params, only: [:create]
     before_action :configure_account_update_params, only: [:update]
 
     def edit
@@ -37,6 +37,10 @@ module Users
 
     def user_params
       params.require(:user).permit(:name, :email, :telegram, :password)
+    end
+
+    def after_inactive_sign_up_path_for(resource) # rubocop:disable Lint/UnusedMethodArgument
+      new_user_session_path
     end
   end
 end

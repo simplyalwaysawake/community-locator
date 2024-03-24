@@ -7,7 +7,7 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
 
   test 'shows sign up and sign in links if not signed in' do
     get home_show_url
-    assert_select 'a', 'Sign up'
+    assert_select 'a', 'Get started'
     assert_select 'a', 'Sign in'
   end
 
