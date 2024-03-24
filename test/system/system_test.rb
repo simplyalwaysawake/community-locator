@@ -44,8 +44,8 @@ class SystemTest < ApplicationSystemTestCase
     fill_in 'City', with: 'New York'
     fill_in 'State', with: 'NY'
     fill_in 'Country', with: 'United States'
-    fill_in 'Postal code', with: '10002'
-    click_on 'Save'
+    fill_in 'Postal Code', with: '10002'
+    click_on 'Next'
 
     # We should be back on the community screen
     assert_text 'Simply Always Awake Community Locator'
@@ -66,7 +66,7 @@ class SystemTest < ApplicationSystemTestCase
     fill_in 'City', with: @location.city
     fill_in 'State', with: @location.state
     fill_in 'Country', with: @location.country
-    fill_in 'Postal code', with: @location.postal_code
+    fill_in 'Postal Code', with: @location.postal_code
 
     click_on 'Save'
 

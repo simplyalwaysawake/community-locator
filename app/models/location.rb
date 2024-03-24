@@ -2,8 +2,12 @@
 
 class Location < ApplicationRecord
   belongs_to :user
+
   before_validation :sanitize_fields
+
   validate :user_does_not_already_have_a_location, on: :create
+  validate :at_least_one_field_present, on: :create
+
   geocoded_by :address
   after_validation :geocode
 
@@ -26,5 +30,11 @@ class Location < ApplicationRecord
     return unless Location.where(user:).count >= 1
 
     errors.add(:base, 'User already has a location')
+  end
+
+  def at_least_one_field_present
+    return false unless %w[city state country postal_code].all? { |attr| self[attr].blank? }
+
+    errors.add :base, 'At least one field must have a value'
   end
 end
