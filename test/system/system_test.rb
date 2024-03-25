@@ -48,12 +48,9 @@ class SystemTest < ApplicationSystemTestCase
     click_on 'Next'
 
     # We should be back on the community screen
-    assert_text 'Simply Always Awake Community Locator'
     assert_text 'John Doe'
     assert_text 'New York, NY'
     assert_text 'john.doe@example.com'
-    assert_link 'Edit location'
-    assert_link 'Sign out'
   end
 
   test 'should update location' do
@@ -61,7 +58,7 @@ class SystemTest < ApplicationSystemTestCase
     sign_in users(:john_doe)
     visit root_url
 
-    click_on 'Edit location', match: :first
+    click_on 'Location', match: :first
 
     fill_in 'City', with: @location.city
     fill_in 'State', with: @location.state

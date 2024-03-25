@@ -113,6 +113,8 @@ GEM
     geocoder (1.8.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    heroicon (1.0.0)
+      rails (>= 5.2)
     i18n (1.14.4)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.1)
@@ -311,6 +313,7 @@ DEPENDENCIES
   devise (~> 4.9)
   dotenv
   geocoder (~> 1.8)
+  heroicon (~> 1.0)
   importmap-rails
   jbuilder
   pg
