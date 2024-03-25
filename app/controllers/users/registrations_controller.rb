@@ -38,5 +38,9 @@ module Users
     def user_params
       params.require(:user).permit(:name, :email, :telegram, :password)
     end
+
+    def after_inactive_sign_up_path_for(resource) # rubocop:disable Lint/UnusedMethodArgument
+      new_user_session_path
+    end
   end
 end

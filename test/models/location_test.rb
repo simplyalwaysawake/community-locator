@@ -147,4 +147,10 @@ class LocationTest < ActiveSupport::TestCase # rubocop:disable Metrics/ClassLeng
     assert_equal 44.86747, location.latitude
     assert_equal(-93.35977, location.longitude)
   end
+
+  test 'not all fields can be blank' do
+    location = Location.new
+    assert_not location.save
+    assert_equal 'At least one field must have a value', location.errors.where(:base).first.full_message
+  end
 end

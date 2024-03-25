@@ -9,15 +9,31 @@ class SystemTest < ApplicationSystemTestCase
     @location = locations(:new_york)
   end
 
-  test 'should sign in and create location' do
-    # User jane_doe is registered but doesn't have a location
-    user = users(:jane_doe)
+  test 'registration flow' do # rubocop:disable Metrics/BlockLength
+    # Sign up
+    visit root_path
+    click_on 'Get started'
+
+    email = 'jimmy@example.com'
+    password = 'password'
+
+    fill_in 'Email', with: email
+    fill_in 'Password', with: password
+    click_on 'Sign up'
+
+    # We should be on the sign in page with a message about confirming the email
+    assert_text 'Sign in'
+    assert_text 'A message with a confirmation link has been sent to your email address'
+
+    # Confirm email
+    token = ActionMailer::Base.deliveries.last.body.match(/confirmation_token=(.*)"/)[1]
+    visit user_confirmation_path(confirmation_token: token)
 
     # Sign in
     visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: 'password2'
-    click_on 'Log in'
+    fill_in 'Email', with: email
+    fill_in 'Password', with: password
+    click_on 'Sign in'
 
     # Enter name and telegram
     fill_in 'Name', with: 'John Doe'
@@ -28,18 +44,13 @@ class SystemTest < ApplicationSystemTestCase
     fill_in 'City', with: 'New York'
     fill_in 'State', with: 'NY'
     fill_in 'Country', with: 'United States'
-    fill_in 'Postal code', with: '10002'
-    click_on 'Save'
+    fill_in 'Postal Code', with: '10002'
+    click_on 'Next'
 
     # We should be back on the community screen
-    assert_text 'Simply Always Awake Community Locator'
-
     assert_text 'John Doe'
     assert_text 'New York, NY'
     assert_text 'john.doe@example.com'
-
-    assert_link 'Edit location'
-    assert_link 'Sign out'
   end
 
   test 'should update location' do
@@ -47,12 +58,12 @@ class SystemTest < ApplicationSystemTestCase
     sign_in users(:john_doe)
     visit root_url
 
-    click_on 'Edit location', match: :first
+    click_on 'Location', match: :first
 
     fill_in 'City', with: @location.city
     fill_in 'State', with: @location.state
     fill_in 'Country', with: @location.country
-    fill_in 'Postal code', with: @location.postal_code
+    fill_in 'Postal Code', with: @location.postal_code
 
     click_on 'Save'
 

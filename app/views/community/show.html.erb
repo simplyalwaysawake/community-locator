@@ -1,23 +1,35 @@
-<div>
-  <h1>Simply Always Awake Community Locator</h1>
-</div>
-
-<div>
-  <h1>My Community</h1>
-</div>
-
-<% if @community.empty? %>
-  <div>There are currently no people in your area.</div>
-<% else %>
-  <div class="mt-4 mb-8">
-    <%= render 'list' %>
+<%- title "My Community" %>
+<div class="px-4 sm:px-6 lg:px-8">
+  <div class="-mx-4 sm:-mx-0">
+    <table class="min-w-full divide-y divide-gray-300">
+      <thead>
+        <tr>
+          <th scope="col" class="hidden py-3.5 pr-3 text-left text-sm font-semibold text-gray-900 sm:table-cell">Name</th>
+          <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Title</th>
+          <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Email</th>
+          <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Telegram</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200 bg-white">
+        <% @community.each do |user| %>
+          <tr>
+            <td class="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-0">
+              <%= display_name(user) %>
+              <dl class="font-normal lg:hidden">
+                <dt class="sr-only">Title</dt>
+                <dd class="mt-1 truncate text-gray-700"><%= short_address(user.location) %></dd>
+                <dt class="sr-only sm:hidden">Email</dt>
+                <dd class="mt-1 truncate text-gray-500 sm:hidden">Email: <%= user.email %></dd>
+                <dd class="mt-1 truncate text-gray-500 sm:hidden">Telegram: <%= user.telegram %></dd>
+              </dl>
+            </td>
+            <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell"><%= short_address(user.location) %></td>
+            <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell"><%= user.email %></td>
+            <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell"><%= user.telegram %></td>
+            
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
-<% end %>
-
-<div>
-  <%= link_to "Edit profile", edit_user_registration_path, class: "rounded-lg my-2 py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Edit location", location_path, class: "rounded-lg my-2 py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-</div>
-<div>
-  <%= link_to 'Sign out', destroy_user_session_path, data: { "turbo-method": :delete }, class: "rounded-lg py-3 my-2 px-5 bg-gray-100 inline-block font-medium" %>
 </div>
