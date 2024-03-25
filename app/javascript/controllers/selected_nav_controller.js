@@ -6,8 +6,8 @@ export default class extends Controller {
   static values = { controller: String }
 
   updateClasses(target) {
-    target.classList.add("bg-gray-900", "text-white")
-    target.classList.remove("text-gray-300", "hover:bg-gray-700", "hover:text-white")
+    target.classList.add("border-indigo-500", "text-gray-900")
+    target.classList.remove("border-transparent", "text-gray-500", "hover:border-gray-300", "hover:text-gray-700")
   }
 
   connect() {
