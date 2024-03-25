@@ -2,10 +2,10 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application"
+import { application } from "controllers/application"
 
-import MenuController from "./menu_controller"
+import MenuController from "controllers/menu_controller"
 application.register("menu", MenuController)
 
-import SelectedNavController from "./selected_nav_controller"
+import SelectedNavController from "controllers/selected_nav_controller"
 application.register("selected-nav", SelectedNavController)
