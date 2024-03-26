@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   resolve('Location') { [:location] }
 
   get 'community' => 'community#show'
+
+  get 'terms' => 'terms#show'
 end
