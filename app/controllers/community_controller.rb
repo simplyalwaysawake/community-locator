@@ -10,6 +10,18 @@ class CommunityController < ApplicationController
     @community = User.where(id: @location.nearbys(100).map(&:user_id)) if @location
   end
 
+  def email_community
+    @location = current_user.location if current_user
+    return unless @location
+
+    @community = User.where(id: @location.nearbys(100).map(&:user_id)) if @location
+    UserMailer
+      .with(user: current_user, community: @community)
+      .my_community(current_user, @community)
+      .deliver_now
+    redirect_to community_path, notice: 'Email sent' # rubocop:disable Rails/I18nLocaleTexts
+  end
+
   private
 
   def validate_profile!

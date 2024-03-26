@@ -52,6 +52,16 @@ class SystemTest < ApplicationSystemTestCase
     assert_text 'John Doe'
     assert_text 'New York, NY'
     assert_text 'john.doe@example.com'
+
+    # Send email with list
+    click_on 'Email this list to me'
+    sleep 3 # Wait for email to be sent
+    assert ActionMailer::Base.deliveries.last.html_part.body.match(/John Doe/)
+
+    # Sign out
+    click_on 'Sign out'
+    assert_text 'Signed out successfully'
+    assert_text 'Sign in'
   end
 
   test 'should update location' do

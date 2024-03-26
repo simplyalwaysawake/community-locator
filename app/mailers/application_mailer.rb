@@ -2,5 +2,5 @@
 
 class ApplicationMailer < ActionMailer::Base
   default from: 'Simply Always Awake Community Locator <communitylocator@simplyalwaysawake.com>'
-  layout 'mailer'
+  layout 'bootstrap-mailer'
 end
