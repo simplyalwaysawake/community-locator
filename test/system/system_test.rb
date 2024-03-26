@@ -19,6 +19,7 @@ class SystemTest < ApplicationSystemTestCase
 
     fill_in 'Email', with: email
     fill_in 'Password', with: password
+    check 'user-agreement'
     click_on 'Sign up'
 
     # We should be on the sign in page with a message about confirming the email
