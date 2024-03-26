@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+
+<div class="stack-col gap-8">
+  <p><%= "Hello, #{params[:user].name}! Here's your community." %></p>
+
+  <div>
+    <table class="table thead-default">
+      <thead>
+        <tr>
+        </tr>
+      </thead>
+      <tbody>
+      <% @community.each do |person| %>
+        <tr>
+          <td>
+            <div>
+              <strong><%= person.name %></strong>
+            </div>
+            <div>
+              <%= short_address(person.location) %>
+            </div>
+            <div>
+              <%= "Email: #{person.email}" %>
+            </div>
+            <div>
+              <%= "Telegram: #{person.telegram}" %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= link_to "Simply Always Awake Community Locator", root_url %>
+</div>
+</body>
+</html>
