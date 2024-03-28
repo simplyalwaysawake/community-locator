@@ -1,0 +1,30 @@
+<div class="flex min-h-full flex-col justify-center px-6 lg:px-8">
+  <%= render "application/error_messages", object: @options %>
+  
+  <%- title "Options" %>
+
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm mb-10">
+    <form action="/options" method="<%= current_user.options.id.nil? ? "POST" : "PATCH" %>">
+    <div class="space-y-12">
+      <div class="border-b border-gray-900/10 pb-12">
+        <div>
+          <label for="location" class="block text-sm font-medium leading-6 text-gray-900">Community Range</label>
+          <select id="options_community_range" name="options[community_range]" class="mt-2 block rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <option <%= @options&.community_range == 1 ? "selected" : nil %>>1</option>
+            <option <%= @options&.community_range == 5 ? "selected" : nil %>>5</option>
+            <option <%= @options&.community_range == 10 ? "selected" : nil %>>10</option>
+            <option <%= @options&.community_range == 20 ? "selected" : nil %>>20</option>
+            <option <%= @options&.community_range == 50 ? "selected" : nil %>>50</option>
+            <option <%= @options&.community_range == 100 ? "selected" : nil %>>100</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 flex items-center justify-end gap-x-6">
+      <%= link_to "Cancel", root_path, class: "text-sm font-semibold leading-6 text-gray-900" %>
+      <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+    </div>
+  </form>
+  </div>
+</div>

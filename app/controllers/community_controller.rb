@@ -7,14 +7,14 @@ class CommunityController < ApplicationController
 
   def show
     @location = current_user.location
-    @community = User.where(id: @location.nearbys(100).map(&:user_id)) if @location
+    @community = Community.for(current_user)
   end
 
   def email_community
-    @location = current_user.location if current_user
+    @location = current_user.location
     return unless @location
 
-    @community = User.where(id: @location.nearbys(100).map(&:user_id)) if @location
+    @community = Community.for(current_user)
     UserMailer
       .with(user: current_user, community: @community)
       .my_community(current_user, @community)
