@@ -5,7 +5,7 @@
       <thead>
         <tr>
           <th scope="col" class="hidden py-3.5 pr-3 text-left text-sm font-semibold text-gray-900 sm:table-cell">Name</th>
-          <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Title</th>
+          <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Location</th>
           <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Email</th>
           <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Telegram</th>
         </tr>
@@ -16,7 +16,7 @@
             <td class="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-0">
               <%= display_name(user) %>
               <dl class="font-normal lg:hidden">
-                <dt class="sr-only">Title</dt>
+                <dt class="sr-only">Location</dt>
                 <dd class="mt-1 truncate text-gray-700"><%= short_address(user.location) %></dd>
                 <dt class="sr-only sm:hidden">Email</dt>
                 <dd class="mt-1 truncate text-gray-500 sm:hidden">Email: <%= user.email %></dd>
