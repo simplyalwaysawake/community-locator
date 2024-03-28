@@ -17,6 +17,8 @@ export default class extends Controller {
       this.updateClasses(this.itemTarget)
     } else if (this.controllerValue == "registrations" && this.itemTarget.dataset.itemId == "profile") {
       this.updateClasses(this.itemTarget)
+    } else if (this.controllerValue == "options" && this.itemTarget.dataset.itemId == "options") {
+      this.updateClasses(this.itemTarget)
     }
   }
 }
