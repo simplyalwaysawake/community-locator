@@ -28,6 +28,7 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
-  location_saved: "Location saved"
+  hello: 'Hello world'
+  location_saved: 'Location saved'
   profile_updated: 'Profile updated'
+  profile_updated_pending_reconfirmation: 'Profile updated. Please check your email to confirm the changes.'

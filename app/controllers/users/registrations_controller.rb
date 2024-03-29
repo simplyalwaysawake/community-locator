@@ -15,7 +15,12 @@ module Users
 
     def update
       if current_user.update(user_params)
-        redirect_to root_path, notice: I18n.t('profile_updated')
+        notice = if current_user.pending_reconfirmation?
+                   I18n.t('profile_updated_pending_reconfirmation')
+                 else
+                   I18n.t('profile_updated')
+                 end
+        redirect_to root_path, notice:
       else
         render :edit, status: :unprocessable_entity
       end
