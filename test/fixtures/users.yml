@@ -43,3 +43,11 @@ user5:
   encrypted_password: <%= User.new.send(:password_digest, 'password5') %>
   confirmed_at: <%= Time.zone.now - 1.minute %>
   confirmation_sent_at: <%= Time.zone.now - 2.minutes %>
+
+dave_in_alaska:
+  email: "dave@example.com"
+  encrypted_password: <%= User.new.send(:password_digest, 'password5') %>
+  confirmed_at: <%= Time.zone.now - 1.minute %>
+  confirmation_sent_at: <%= Time.zone.now - 2.minutes %>
+  name: 'Dave'
+  telegram: '@daveinalaska'

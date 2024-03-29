@@ -3,3 +3,7 @@
 one:
   user: john_doe
   community_range: 20
+
+dave_in_alaska:
+  user: dave_in_alaska
+  community_range: 20

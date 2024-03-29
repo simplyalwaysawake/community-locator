@@ -8,6 +8,13 @@ class CommunityController < ApplicationController
   def show
     @location = current_user.location
     @community = Community.for(current_user)
+    @range = current_user.options.community_range
+
+    if @community.empty?
+      render 'empty'
+    else
+      render 'show'
+    end
   end
 
   def email_community

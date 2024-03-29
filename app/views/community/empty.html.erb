@@ -1,0 +1,22 @@
+<div class="text-center">
+  <h3 class="mt-2 text-sm font-semibold text-gray-900">No members within <%= pluralize(@range, 'mile') %> of you.</h3>
+  <% if @range < Options::MAX_COMMUNITY_RANGE %>
+    <p class="mt-1 text-sm text-gray-500">Come back later and see if anyone new in your area has registered, or consider increasing your range in Options.</p>
+    <div class="mt-6">
+      <%=
+        link_to "Options",
+        options_path,
+        class: "inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+        data: {
+          controller: "selected-nav",
+          selected_nav_controller_value: controller_name,
+          selected_nav_target: "item",
+          item_id: "options"
+        }
+      %>
+    </div>
+  <% else %>
+    <p class="mt-1 text-sm text-gray-500">Come back later and see if anyone new in your area has registered.</p>
+  <% end %>
+
+</div>

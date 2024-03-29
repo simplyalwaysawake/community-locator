@@ -41,4 +41,11 @@ class CommunityControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'td', /user3/
   end
+
+  test 'shows empty community if user has location and name but no other users' do
+    sign_in users(:dave_in_alaska)
+    get community_url
+    assert_response :success
+    assert_select 'h3', 'No members within 20 miles of you.'
+  end
 end
