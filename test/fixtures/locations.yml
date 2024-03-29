@@ -26,3 +26,12 @@ albany:
   postal_code: 12084
   latitude: 42.6680844
   longitude: -73.810681
+
+alaska:
+  user: dave_in_alaska
+  city: Anchorage
+  state: AK
+  country: USA
+  postal_code: 99501
+  latitude: 61.2163129
+  longitude: -149.8948526
