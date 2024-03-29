@@ -9,3 +9,6 @@ application.register("menu", MenuController)
 
 import SelectedNavController from "controllers/selected_nav_controller"
 application.register("selected-nav", SelectedNavController)
+
+import ShowPasswordToggleController from "controllers/show_password_toggle_controller"
+application.register("show-password-toggle", ShowPasswordToggleController)
