@@ -6,12 +6,18 @@ class NotifyUsersOfNewUsersJob < ApplicationJob
   def perform(users = nil)
     if users
       users.each do |user|
-        NewNearbyUserNotification.new(user).send
+        try_send_notification(user)
       end
     else
       User.find_each do |user|
-        NewNearbyUserNotification.new(user).send
+        try_send_notification(user)
       end
     end
+  end
+
+  def try_send_notification(user)
+    NewNearbyUserNotification.new(user).send
+  rescue StandardError => e
+    Rails.logger.error("Error sending notification to user #{user.id}: #{e.message}")
   end
 end

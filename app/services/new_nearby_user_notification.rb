@@ -15,6 +15,7 @@ class NewNearbyUserNotification
       .new_nearby_users(@user, new_nearby_users)
       .deliver_now
 
+    @user.update(has_seen_community: true) unless @user.has_seen_community
     @community.save_current_nearby_users
   end
 end
