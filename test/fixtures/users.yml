@@ -51,3 +51,11 @@ dave_in_alaska:
   confirmation_sent_at: <%= Time.zone.now - 2.minutes %>
   name: 'Dave'
   telegram: '@daveinalaska'
+
+joe_doe:
+  email: "joe.doe@example.com"
+  encrypted_password: <%= User.new.send(:password_digest, 'password1') %>
+  confirmed_at: <%= Time.zone.now - 1.minute %>
+  confirmation_sent_at: <%= Time.zone.now - 2.minutes %>
+  name: 'Joe Doe'
+  telegram: '@joedoe'

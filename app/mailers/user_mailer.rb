@@ -19,7 +19,7 @@ class UserMailer < ApplicationMailer
 
     bootstrap_mail(
       to: user.email,
-      subject: 'New People in Your Community'
+      subject: "New #{'Person'.pluralize(@new_nearby_users.length)} in Your Community"
     )
   end
 end
