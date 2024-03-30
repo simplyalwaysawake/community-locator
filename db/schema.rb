@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_30_163701) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_30_194229) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_30_163701) do
     t.integer "community_range", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "notify_on_new_users"
     t.index ["user_id"], name: "index_user_options_on_user_id"
   end
 

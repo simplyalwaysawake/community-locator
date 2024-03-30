@@ -6,11 +6,11 @@ class NotifyUsersOfNewUsersJob < ApplicationJob
   def perform(users = nil)
     if users
       users.each do |user|
-        try_send_notification(user)
+        try_send_notification(user) if user.user_options&.notify_on_new_users
       end
     else
       User.find_each do |user|
-        try_send_notification(user)
+        try_send_notification(user) if user.user_options&.notify_on_new_users
       end
     end
   end
