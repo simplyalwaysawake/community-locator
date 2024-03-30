@@ -17,7 +17,11 @@ class UserOptionsControllerTest < ActionDispatch::IntegrationTest
     user = users(:john_doe)
     sign_in user
     patch options_url(@options),
-          params: { user_options: { community_range: 1, user: } }
+          params: { user_options: { community_range: 1, notify_on_new_users: true, user: } }
     assert_redirected_to root_path
+
+    user.reload
+    assert_equal 1, user.user_options.community_range
+    assert user.user_options.notify_on_new_users
   end
 end

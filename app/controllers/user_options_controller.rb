@@ -20,7 +20,13 @@ class UserOptionsController < ApplicationController
 
   def update
     @options = current_user.user_options
-    if @options.update(options_params)
+
+    values = options_params
+    values[:notify_on_new_users] = %w[on true].include? values[:notify_on_new_users]
+
+    Rails.logger.info("Values: #{values}")
+
+    if @options.update(values)
       redirect_to root_path, notice: 'Options saved' # rubocop:disable Rails/I18nLocaleTexts
     else
       render :edit, status: :unprocessable_entity
@@ -30,6 +36,6 @@ class UserOptionsController < ApplicationController
   private
 
   def options_params
-    params.require(:user_options).permit(:community_range, :user_id)
+    params.require(:user_options).permit(:user_id, :community_range, :notify_on_new_users)
   end
 end
