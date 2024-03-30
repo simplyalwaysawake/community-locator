@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateNearbyUsers < ActiveRecord::Migration[7.1]
   def change
     create_table :nearby_users do |t|

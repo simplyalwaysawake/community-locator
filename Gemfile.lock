@@ -152,6 +152,8 @@ GEM
     matrix (0.4.2)
     mini_mime (1.1.5)
     minitest (5.22.2)
+    mocha (2.1.0)
+      ruby2_keywords (>= 0.0.5)
     msgpack (1.7.2)
     mutex_m (0.2.0)
     net-imap (0.4.10)
@@ -265,6 +267,7 @@ GEM
       rubocop (>= 1.33.0, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
     ruby-progressbar (1.13.0)
+    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -339,6 +342,7 @@ DEPENDENCIES
   heroicon (~> 1.0)
   importmap-rails
   jbuilder
+  mocha
   pg
   puma (>= 5.0)
   rack-attack (~> 6.7)

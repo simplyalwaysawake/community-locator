@@ -38,6 +38,6 @@ class CommunityTest < ActiveSupport::TestCase
       postal_code: '07101'
     )
 
-    assert_equal [jane_doe.id], Community.new(user).new_nearby_users_since_last_save
+    assert_equal [jane_doe], Community.new(user).new_nearby_users_since_last_save
   end
 end

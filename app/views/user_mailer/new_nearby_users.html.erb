@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+</head>
+<body>
+
+<div class="stack-col gap-8">
+  <p><%= "Hello, #{@user.name}!" %></p>
+
+  <p>There are new people in your community.</p>
+
+  <div>
+    <table class="table thead-default">
+      <thead>
+        <tr>
+        </tr>
+      </thead>
+      <tbody>
+      <% @new_nearby_users.each do |person| %>
+        <tr>
+          <td>
+            <div>
+              <strong><%= person.name %></strong>
+            </div>
+            <div>
+              <%= short_address(person.location) %>
+            </div>
+            <div>
+              <%= "Email: #{person.email}" %>
+            </div>
+            <div>
+              <%= "Telegram: #{person.telegram}" %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    Don't want to receive these updates anymore? Disable them in <%= link_to "Options", options_url %>
+  </div>
+  <div>
+    <%= link_to "Simply Always Awake Community Locator", root_url %>
+  </div>
+</div>
+</body>
+</html>

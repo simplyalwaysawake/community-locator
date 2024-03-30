@@ -30,11 +30,12 @@ class Community
   end
 
   def new_nearby_users_since_last_save
-    return {} unless @user.location
+    return [] unless @user.location
 
     current_nearby_user_ids = community.map(&:id)
     last_known_nearby_user_ids = NearbyUser.where(user_id: @user.id).map(&:nearby_user_id)
 
-    current_nearby_user_ids - last_known_nearby_user_ids
+    user_ids = current_nearby_user_ids - last_known_nearby_user_ids
+    User.where(id: user_ids)
   end
 end

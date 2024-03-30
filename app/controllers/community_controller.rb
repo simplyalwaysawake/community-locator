@@ -6,16 +6,15 @@ class CommunityController < ApplicationController
   before_action :validate_location!
   before_action :validate_options!
 
+  after_action :save_current_nearby_users,
+               only: %i[show],
+               unless: -> { current_user.has_seen_community? }
+
   def show
     @location = current_user.location
     @community = Community.for(current_user)
     @range = current_user.user_options.community_range
-
-    if @community.empty?
-      render 'empty'
-    else
-      render 'show'
-    end
+    render(@community.empty? ? 'empty' : 'show')
   end
 
   def email_community
@@ -48,5 +47,10 @@ class CommunityController < ApplicationController
     return unless current_user.user_options.nil?
 
     redirect_to options_path
+  end
+
+  def save_current_nearby_users
+    Community.new(current_user).save_current_nearby_users
+    current_user.update(has_seen_community: true)
   end
 end
