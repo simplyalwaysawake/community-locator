@@ -8,7 +8,11 @@
 <div class="stack-col gap-8">
   <p><%= "Hello, #{@user.name}!" %></p>
 
-  <p>There are new people in your community.</p>
+  <% if @new_nearby_users.length == 1 %>
+    <p>There is a new person in your community.</p>
+  <% else %>
+    <p>There are new people in your community.</p>
+  <% end %>
 
   <div>
     <table class="table thead-default">

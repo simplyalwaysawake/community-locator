@@ -20,7 +20,7 @@ class NewNearbyUserNotificationTest < ActiveSupport::TestCase
     assert_difference 'ActionMailer::Base.deliveries.size', 1 do
       NewNearbyUserNotification.new(user).send
       body = ActionMailer::Base.deliveries.last.html_part.body
-      assert body.match(/There are new people in your community./)
+      assert body.match(/There is a new person in your community./)
       assert body.match(/Jane Doe/)
     end
   end
