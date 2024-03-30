@@ -2,6 +2,7 @@
 
 class UserMailer < ApplicationMailer
   helper LocationsHelper
+  helper UsersHelper
 
   def my_community(user, community)
     @user = user

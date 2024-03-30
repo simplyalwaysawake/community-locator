@@ -6,7 +6,7 @@
 <body>
 
 <div class="stack-col gap-8">
-  <p><%= "Hello, #{@user.name}!" %></p>
+  <p><%= "Hello, #{display_name(@user)}!" %></p>
 
   <% if @new_nearby_users.length == 1 %>
     <p>There is a new person in your community.</p>
@@ -25,7 +25,7 @@
         <tr>
           <td>
             <div>
-              <strong><%= person.name %></strong>
+              <strong><%= display_name(person) %></strong>
             </div>
             <div>
               <%= short_address(person.location) %>
@@ -34,7 +34,7 @@
               <%= "Email: #{person.email}" %>
             </div>
             <div>
-              <%= "Telegram: #{person.telegram}" %>
+              <%= "Telegram: #{display_telegram(person)}" %>
             </div>
           </td>
         </tr>

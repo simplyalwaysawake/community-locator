@@ -20,12 +20,12 @@
                 <dd class="mt-1 truncate text-gray-700"><%= short_address(user.location) %></dd>
                 <dt class="sr-only sm:hidden">Email</dt>
                 <dd class="mt-1 truncate text-gray-500 sm:hidden">Email: <%= user.email %></dd>
-                <dd class="mt-1 truncate text-gray-500 sm:hidden">Telegram: <%= user.telegram %></dd>
+                <dd class="mt-1 truncate text-gray-500 sm:hidden">Telegram: <%= display_telegram(user) %></dd>
               </dl>
             </td>
             <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell"><%= short_address(user.location) %></td>
             <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell"><%= user.email %></td>
-            <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell"><%= user.telegram %></td>
+            <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell"><%= display_telegram(user) %></td>
           </tr>
         <% end %>
       </tbody>
