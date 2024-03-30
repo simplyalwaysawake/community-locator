@@ -11,7 +11,7 @@ class Community
 
   def community
     if @user.location
-      range = @user.options.community_range
+      range = @user.user_options&.community_range || UserOptions::DEFAULT_COMMUNITY_RANGE
       User.where(id: @user.location.nearbys(range).map(&:user_id))
     else
       []

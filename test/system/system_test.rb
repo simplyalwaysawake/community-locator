@@ -48,6 +48,10 @@ class SystemTest < ApplicationSystemTestCase
     fill_in 'Postal Code', with: '10002'
     click_on 'Next'
 
+    # Enter options
+    select '10', from: 'Community Range (miles)'
+    click_on 'Save'
+
     # We should be back on the community screen
     assert_text 'John Doe'
     assert_text 'New York, NY'

@@ -19,9 +19,10 @@ Rails.application.routes.draw do
   patch 'location' => 'locations#update'
   resolve('Location') { [:location] }
 
-  get 'options' => 'options#edit'
-  patch 'options' => 'options#update'
-  resolve('Options') { [:options] }
+  get 'options' => 'user_options#edit'
+  post 'options' => 'user_options#create'
+  patch 'options' => 'user_options#update'
+  resolve('UserOptions') { [:user_options] }
 
   get 'community' => 'community#show'
   post 'email_community' => 'community#email_community', as: :email_community

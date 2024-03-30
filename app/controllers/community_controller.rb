@@ -4,11 +4,12 @@ class CommunityController < ApplicationController
   before_action :authenticate_user!
   before_action :validate_profile!
   before_action :validate_location!
+  before_action :validate_options!
 
   def show
     @location = current_user.location
     @community = Community.for(current_user)
-    @range = current_user.options.community_range
+    @range = current_user.user_options.community_range
 
     if @community.empty?
       render 'empty'
@@ -41,5 +42,11 @@ class CommunityController < ApplicationController
     return unless current_user.location.nil?
 
     redirect_to location_path
+  end
+
+  def validate_options!
+    return unless current_user.user_options.nil?
+
+    redirect_to options_path
   end
 end
