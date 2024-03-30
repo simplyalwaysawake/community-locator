@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class OptionsControllerTest < ActionDispatch::IntegrationTest
+class UserOptionsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
   test 'should get edit' do
@@ -17,7 +17,7 @@ class OptionsControllerTest < ActionDispatch::IntegrationTest
     user = users(:john_doe)
     sign_in user
     patch options_url(@options),
-          params: { options: { community_range: 1, user: } }
+          params: { user_options: { community_range: 1, user: } }
     assert_redirected_to root_path
   end
 end

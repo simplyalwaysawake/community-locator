@@ -7,6 +7,9 @@ import { application } from "controllers/application"
 import MenuController from "controllers/menu_controller"
 application.register("menu", MenuController)
 
+import SelectController from "controllers/select_controller"
+application.register("select", SelectController)
+
 import SelectedNavController from "controllers/selected_nav_controller"
 application.register("selected-nav", SelectedNavController)
 

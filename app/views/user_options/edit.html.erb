@@ -1,0 +1,34 @@
+<div class="flex min-h-full flex-col justify-center px-6 lg:px-8">
+  <%= render "application/error_messages", object: @options %>
+  
+  <%- title "Options" %>
+
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm mb-10">
+    <form action="/options" method="<%= current_user.user_options.nil? ? "POST" : "PATCH" %>">
+    <div class="space-y-12">
+      <div class="border-b border-gray-900/10 pb-12">
+        <div>
+          <label for="user_options_community_range" class="block text-sm font-medium leading-6 text-gray-900">Community Range (miles)</label>
+          <select id="user_options_community_range" name="user_options[community_range]" class="mt-2 block rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>1</option>
+            <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>5</option>
+            <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>10</option>
+            <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>20</option>
+            <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>50</option>
+            <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>100</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-6 flex items-center justify-end gap-x-6">
+      <% unless current_user.user_options.nil? %>
+        <%= link_to "Cancel", root_path, class: "text-sm font-semibold leading-6 text-gray-900" %>
+      <% end %>
+      <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+        Save
+      </button>
+    </div>
+  </form>
+  </div>
+</div>

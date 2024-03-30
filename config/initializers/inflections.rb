@@ -18,5 +18,5 @@
 # end
 
 ActiveSupport::Inflector.inflections do |inflect|
-  inflect.uncountable %w[options]
+  inflect.uncountable %w[user_options]
 end

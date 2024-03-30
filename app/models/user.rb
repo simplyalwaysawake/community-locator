@@ -7,15 +7,9 @@ class User < ApplicationRecord
          :confirmable, :lockable, :trackable, :timeoutable
 
   has_one :location, dependent: :destroy
-  has_one :options, dependent: :destroy
-
-  after_commit :create_options, on: :create
+  has_one :user_options, dependent: :destroy
 
   def password_required?
     new_record? || password.present?
-  end
-
-  def create_options
-    Options.create(user: self)
   end
 end
