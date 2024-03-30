@@ -67,6 +67,19 @@ class SystemTest < ApplicationSystemTestCase
     click_on 'Sign out'
     assert_text 'Signed out successfully'
     assert_text 'Sign in'
+
+    # Verify data
+    jimmy = User.where(email:).first
+    assert_equal 'John Doe', jimmy.name
+    assert_equal 'johndoe', jimmy.telegram
+
+    assert_equal 'New York', jimmy.location.city
+    assert_equal 'NY', jimmy.location.state
+    assert_equal 'United States', jimmy.location.country
+    assert_equal '10002', jimmy.location.postal_code
+
+    assert_equal 10, jimmy.user_options.community_range
+    assert jimmy.user_options.notify_on_new_users
   end
 
   test 'should update location' do
