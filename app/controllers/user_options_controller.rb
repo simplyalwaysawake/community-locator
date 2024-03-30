@@ -30,6 +30,6 @@ class UserOptionsController < ApplicationController
   private
 
   def options_params
-    params.require(:user_options).permit(:community_range, :user_id)
+    params.require(:user_options).permit(:user_id, :community_range, :notify_on_new_users)
   end
 end
