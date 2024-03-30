@@ -6,7 +6,7 @@
 <body>
 
 <div class="stack-col gap-8">
-  <p><%= "Hello, #{params[:user].name}! Here's your community." %></p>
+  <p><%= "Hello, #{display_name(params[:user])}! Here's your community." %></p>
 
   <div>
     <table class="table thead-default">
@@ -19,7 +19,7 @@
         <tr>
           <td>
             <div>
-              <strong><%= person.name %></strong>
+              <strong><%= display_name(person) %></strong>
             </div>
             <div>
               <%= short_address(person.location) %>
@@ -28,7 +28,7 @@
               <%= "Email: #{person.email}" %>
             </div>
             <div>
-              <%= "Telegram: #{person.telegram}" %>
+              <%= "Telegram: #{display_telegram(person)}" %>
             </div>
           </td>
         </tr>
