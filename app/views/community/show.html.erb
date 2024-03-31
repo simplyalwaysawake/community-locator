@@ -30,6 +30,14 @@
         <% end %>
       </tbody>
     </table>
+    <% if @pagy.count > 10 %>
+      <div class="flex justify-center mt-2">
+        <div class="mt-4 justify-center"><%== pagy_nav(@pagy) %></div>
+      </div>
+      <div class="flex justify-center mt-2 text-sm text-gray-500">
+        <div class="justify-center"><%== pagy_info(@pagy) %></div>
+      </div>
+    <% end %>
   </div>
 </div>
 <div class="ml-4 sm:ml-0 px-4 sm:px-6 lg:px-8 pt-8">
