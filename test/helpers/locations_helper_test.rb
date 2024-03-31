@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'test_helper'
+
 class LocationsHelperTest < ActionView::TestCase
   test 'should return city and state' do
     location = locations(:albany)
