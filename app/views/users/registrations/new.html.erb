@@ -25,10 +25,10 @@
           <input data-show-password-toggle-target="password" id="password" name="user[password]" type="password" autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           <div data-action="click->show-password-toggle#toggle" class="absolute inset-y-0 right-0 flex items-center pr-3">
             <div data-show-password-toggle-target="showButton" >
-              <%= heroicon "eye" %>
+              <%= heroicon "eye", variant: :outline, options: {class: "h-5, w-5" } %>
             </div>
             <div data-show-password-toggle-target="hideButton" class="hidden">
-              <%= heroicon "eye-slash" %>
+              <%= heroicon "eye-slash", variant: :outline, options: {class: "h-5, w-5" } %>
             </div>
           </div>
         </div>
