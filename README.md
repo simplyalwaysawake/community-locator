@@ -112,6 +112,11 @@ In a test environment, the lookup service is `:test`, which hard-codes lookup re
 
 In development and production, it uses [HERE](https://developer.here.com/). You will need to
 
+### Jobs
+
+`NotifyUsersOfNewUsersJob` is a job that runs on a scheduled basis and sends users an email if there
+are new people in their area. It uses [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler).
+
 # Libraries
 
 Most notable libraries and services used by the app:
@@ -201,6 +206,13 @@ heroku addons:create heroku-postgresql --remote staging
 Created postgresql-round-86526 as DATABASE_URL
 Use heroku addons:docs heroku-postgresql to view documentation
 
+Enable job scheduler add-on
+
+```sh
+heroku addons:create scheduler:standard -r staging
+heroku addons:open scheduler -r staging
+```
+
 ### Production
 
 Create app:
@@ -222,6 +234,13 @@ Enable PostgreSQL:
 
 ```sh
 heroku addons:create heroku-postgresql --remote production
+```
+
+Enable job scheduler add-on
+
+```sh
+heroku addons:create scheduler:standard -r staging
+heroku addons:open scheduler -r staging
 ```
 
 ## Setting up the pipeline
