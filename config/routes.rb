@@ -28,4 +28,7 @@ Rails.application.routes.draw do
   post 'email_community' => 'community#email_community', as: :email_community
 
   get 'terms' => 'terms#show'
+
+  get 'contact_us' => 'contact_us#new'
+  post 'contact_us' => 'contact_us#create'
 end
