@@ -35,14 +35,14 @@
         </div>
       </div>
 
-      <div>
+      <div class="mt-6 flex items-center justify-end gap-x-6">
+        <% unless current_user.location.nil? %>
+          <%= link_to "Cancel", root_path, class: "text-sm font-semibold leading-6 text-gray-900" %>
+        <% end %>
         <button type="submit"
-          class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
           <%= current_user.location.nil? ? "Next" : "Save" %>
         </button>
-        <% unless current_user.location.nil? %>
-          <%= link_to "Cancel", root_path, class: "flex w-full justify-center mt-4 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" %>
-        <% end %>
       </div>
     </form>
   </div>
