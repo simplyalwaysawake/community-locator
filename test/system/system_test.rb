@@ -51,7 +51,7 @@ class SystemTest < ApplicationSystemTestCase
     # Enter options
     select '10', from: 'Community Range (miles)'
     check 'user_options_notify_on_new_users'
-    click_on 'Save'
+    click_on 'Finish'
 
     # We should be back on the community screen
     assert_text 'John Doe'
