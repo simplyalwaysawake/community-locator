@@ -10,7 +10,7 @@ john_doe:
   confirmed_at: <%= Time.zone.now - 1.minute %>
   confirmation_sent_at: <%= Time.zone.now - 2.minutes %>
   name: 'John Doe'
-  telegram: '@johndoe'
+  telegram: 'johndoe'
 
 jane_doe:
   email: "jane.doe@example.com"
@@ -24,7 +24,7 @@ greg_anderson:
   confirmed_at: <%= Time.zone.now - 1.minute %>
   confirmation_sent_at: <%= Time.zone.now - 2.minutes %>
   name: 'Greg Anderson'
-  telegram: '@greganderson'
+  telegram: 'greganderson'
   
 user3:
   email: "user3@example.com"
@@ -50,7 +50,7 @@ dave_in_alaska:
   confirmed_at: <%= Time.zone.now - 1.minute %>
   confirmation_sent_at: <%= Time.zone.now - 2.minutes %>
   name: 'Dave'
-  telegram: '@daveinalaska'
+  telegram: 'daveinalaska'
 
 joe_doe:
   email: "joe.doe@example.com"
@@ -58,4 +58,4 @@ joe_doe:
   confirmed_at: <%= Time.zone.now - 1.minute %>
   confirmation_sent_at: <%= Time.zone.now - 2.minutes %>
   name: 'Joe Doe'
-  telegram: '@joedoe'
+  telegram: 'joedoe'

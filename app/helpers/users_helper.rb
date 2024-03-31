@@ -6,6 +6,6 @@ module UsersHelper
   end
 
   def display_telegram(user)
-    user.telegram ? "@#{user.telegram}" : ''
+    user.telegram.blank? ? '' : "@#{user.telegram}"
   end
 end
