@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_one :location, dependent: :destroy
   has_one :user_options, dependent: :destroy
+  has_many :saved_nearby_users, dependent: :destroy, class_name: 'NearbyUser'
   has_one :saved_community, dependent: :destroy, class_name: 'UserCommunity'
 
   before_validation :sanitize_fields
