@@ -21,9 +21,9 @@ class CommunityTest < ActiveSupport::TestCase
     Community.new(user).save_current_nearby_users
 
     user.reload
-    nearby_users = user.saved_nearby_users
-    assert_equal 1, nearby_users.count
-    assert_equal users(:user3).id, nearby_users.first.nearby_user_id
+    nearby_user_ids = user.saved_community.nearby_user_ids
+    assert_equal 1, nearby_user_ids.count
+    assert_equal users(:user3).id, nearby_user_ids.first
   end
 
   test 'should detect added community user' do
