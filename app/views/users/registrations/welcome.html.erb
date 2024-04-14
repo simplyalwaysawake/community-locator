@@ -6,7 +6,8 @@
   <%= render "users/shared/error_messages" %>
 
   <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
-    <form class="space-y-6" action="/users" method="PATCH">
+    <form class="space-y-6" action="/users" method="POST">
+      <input type="hidden" name="_method" value="PATCH">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
       <div>
@@ -36,4 +37,3 @@
     </form>
   </div>
 </div>
-
