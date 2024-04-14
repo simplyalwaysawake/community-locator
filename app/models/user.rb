@@ -12,6 +12,10 @@ class User < ApplicationRecord
 
   before_validation :sanitize_fields
 
+  def send_devise_notification(notification, *args)
+    super.tap { |_| Rails.logger.info("Email sent to #{email}: #{notification}") }
+  end
+
   private
 
   def password_required?

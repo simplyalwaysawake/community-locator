@@ -4,46 +4,49 @@
   <%- title "Options" %>
 
   <div class="sm:mx-auto sm:w-full sm:max-w-sm mb-10">
-    <form action="/options" method="<%= current_user.user_options.nil? ? "POST" : "PATCH" %>">
-    <div class="border-b border-gray-900/10 pb-12">
-      <div class="space-y-12">
-        <div>
-          <label for="user_options_community_range" class="block text-sm font-medium leading-6 text-gray-900">Community Range (miles)</label>
-          <select id="user_options_community_range" name="user_options[community_range]" class="mt-2 block rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>1</option>
-            <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>5</option>
-            <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>10</option>
-            <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>20</option>
-            <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>50</option>
-            <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>100</option>
-          </select>
-        </div>
-      </div>
-
-      <fieldset>
-        <legend class="sr-only">Notifications</legend>
-        <div class="mt-10 space-y-5">
-          <div class="relative flex items-start">
-            <div class="flex h-6 items-center">
-              <input <%= "checked" if @options.notify_on_new_users? %> id="user_options_notify_on_new_users" aria-describedby="notifications-description" name="user_options[notify_on_new_users]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
-            </div>
-            <div class="ml-3 text-sm leading-6">
-              <label for="comments" class="font-medium text-gray-900">New people notifications</label>
-              <p id="comments-description" class="text-gray-500">Get email notifications when there are new people in your area.</p>
-            </div>
+    <form action="/options" method="POST">
+      <% if current_user.user_options %>
+        <input type="hidden" name="_method" value="PATCH">
+      <% end %>
+      <div class="border-b border-gray-900/10 pb-12">
+        <div class="space-y-12">
+          <div>
+            <label for="user_options_community_range" class="block text-sm font-medium leading-6 text-gray-900">Community Range (miles)</label>
+            <select id="user_options_community_range" name="user_options[community_range]" class="mt-2 block rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+              <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>1</option>
+              <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>5</option>
+              <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>10</option>
+              <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>20</option>
+              <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>50</option>
+              <option data-controller="select" data-select-target="option" data-select-range-value=<%= @selected_community_range %>>100</option>
+            </select>
           </div>
         </div>
-      </fieldset>
-    </div>
 
-    <div class="mt-6 flex items-center justify-end gap-x-6">
-      <% unless current_user.user_options.nil? %>
-        <%= link_to "Cancel", root_path, class: "text-sm font-semibold leading-6 text-gray-900" %>
-      <% end %>
-      <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-        <%= current_user.user_options.nil? ? "Finish" : "Save" %>
-      </button>
-    </div>
-  </form>
+        <fieldset>
+          <legend class="sr-only">Notifications</legend>
+          <div class="mt-10 space-y-5">
+            <div class="relative flex items-start">
+              <div class="flex h-6 items-center">
+                <input <%= "checked" if @options.notify_on_new_users? %> id="user_options_notify_on_new_users" aria-describedby="notifications-description" name="user_options[notify_on_new_users]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+              </div>
+              <div class="ml-3 text-sm leading-6">
+                <label for="comments" class="font-medium text-gray-900">New people notifications</label>
+                <p id="comments-description" class="text-gray-500">Get email notifications when there are new people in your area.</p>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="mt-6 flex items-center justify-end gap-x-6">
+        <% unless current_user.user_options.nil? %>
+          <%= link_to "Cancel", root_path, class: "text-sm font-semibold leading-6 text-gray-900" %>
+        <% end %>
+        <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+          <%= current_user.user_options.nil? ? "Finish" : "Save" %>
+        </button>
+      </div>
+    </form>
   </div>
 </div>
