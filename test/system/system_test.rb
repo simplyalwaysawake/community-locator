@@ -64,7 +64,7 @@ class SystemTest < ApplicationSystemTestCase
     assert ActionMailer::Base.deliveries.last.html_part.body.match(/John Doe/)
 
     # Sign out
-    click_on 'Sign out'
+    click_on('Sign out', match: :first)
     assert_text 'Signed out successfully'
     assert_text 'Sign in'
 
