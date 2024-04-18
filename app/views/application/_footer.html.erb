@@ -1,9 +1,86 @@
 <footer>
   <div class="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
-    <nav class="-mb-6 columns-2 flex flex justify-center space-x-12" aria-label="Footer">
-      <div >
+    <nav class="-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12" aria-label="Footer">
+
+      <% if user_signed_in? %>
+        <div class="pb-6">
+          <%=
+            link_to "Community",
+            community_path,
+            class: "text-sm leading-6 text-gray-600 hover:text-gray-900",
+            data: {
+              controller: "selected-nav",
+              selected_nav_controller_value: controller_name,
+              selected_nav_target: "item",
+              item_id: "community"
+            }
+          %>
+        </div>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <div class="pb-6">
+          <%=
+            link_to "Profile",
+            edit_user_registration_path,
+            class: "text-sm leading-6 text-gray-600 hover:text-gray-900",
+            data: {
+              controller: "selected-nav",
+              selected_nav_controller_value: controller_name,
+              selected_nav_target: "item",
+              item_id: "profile"
+            }
+          %>
+        </div>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <div class="pb-6">
+          <%=
+            link_to "Location",
+            location_path,
+            class: "text-sm leading-6 text-gray-600 hover:text-gray-900",
+            data: {
+              controller: "selected-nav",
+              selected_nav_controller_value: controller_name,
+              selected_nav_target: "item",
+              item_id: "location"
+            }
+          %>
+        </div>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <div class="pb-6">
+          <%=
+            link_to "Options",
+            options_path,
+            class: "text-sm leading-6 text-gray-600 hover:text-gray-900",
+            data: {
+              controller: "selected-nav",
+              selected_nav_controller_value: controller_name,
+              selected_nav_target: "item",
+              item_id: "options"
+            }
+          %>
+        </div>
+      <% end %>
+
+      <div class="pb-6">
         <a href="<%= contact_us_path %>" class="text-sm leading-6 text-gray-600 hover:text-gray-900">Contact Us</a>
       </div>
+
+      <% if user_signed_in? %>
+        <div class="pb-6">
+          <%=
+            link_to 'Sign out',
+            destroy_user_session_path,
+            data: {"turbo-method": :delete },
+            class: "text-sm leading-6 text-gray-600 hover:text-gray-900"
+          %>
+        </div>
+      <% end %>
+
     </nav>
     <p class="mt-10 text-center text-xs leading-5 text-gray-500">&copy; 2024 <a href="https://simplyalwaysawake.com/" class="font-semibold">Simply Always Awake</a>, LLC. All rights reserved.</p>
   </div>
