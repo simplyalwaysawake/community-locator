@@ -142,6 +142,10 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     json (2.7.1)
+    judoscale-rails (1.5.4)
+      judoscale-ruby (= 1.5.4)
+      railties
+    judoscale-ruby (1.5.4)
     language_server-protocol (3.17.0.3)
     loofah (2.22.0)
       crass (~> 1.0.2)
@@ -349,6 +353,7 @@ DEPENDENCIES
   heroicon (~> 1.0)
   importmap-rails
   jbuilder
+  judoscale-rails
   mocha
   pagy
   pg
