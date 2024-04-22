@@ -31,4 +31,6 @@ Rails.application.routes.draw do
 
   get 'contact_us' => 'contact_us#new'
   post 'contact_us' => 'contact_us#create'
+
+  get 'unsubscribe' => 'prototype_users#unsubscribe'
 end
