@@ -54,7 +54,7 @@ if test_email_address
 else
   puts 'Running in production mode'
   PrototypeUser.find_each do |user|
-    # send_email(user)
+    send_email(user)
     puts "Sent email to #{user.email}"
   rescue StandardError => e
     puts "Error sending email to #{user.email}: #{e.message}"
