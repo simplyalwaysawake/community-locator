@@ -24,7 +24,7 @@ class SystemTest < ApplicationSystemTestCase
 
     # We should be on the sign in page with a message about confirming the email
     assert_text 'Sign in'
-    assert_text 'A message with a confirmation link has been sent to your email address'
+    assert_text 'You should receive an email with a confirmation link within a few minutes'
 
     # Confirm email
     token = ActionMailer::Base.deliveries.last.body.match(/confirmation_token=(.*)"/)[1]
