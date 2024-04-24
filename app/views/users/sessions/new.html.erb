@@ -1,6 +1,7 @@
 <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
   <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in</h2>
+    <h2 class="mt-10 text-center text-2xl leading-9 tracking-tight text-gray-900">Community Locator</h2>
+    <h2 class="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in</h2>
   </div>
 
   <%= render "users/shared/flash_messages" %>
@@ -33,6 +34,19 @@
           </div>
         </div>
       </div>
+
+      <fieldset>
+        <div class="space-y-5">
+          <div class="relative flex items-start">
+            <div class="flex h-6 items-center">
+              <input data-controller="checkbox" data-checkbox-target="checkbox" data-action="click->checkbox#toggle" id="remember_me" aria-describedby="remember_me-description" name="user[remember_me]" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+            </div>
+            <div class="ml-3 text-sm leading-6">
+              <span id="remember_me-description" class="text-gray-800">Keep me signed in for two weeks</span>
+            </div>
+          </div>
+        </div>
+      </fieldset>
 
       <div>
         <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign in</button>
