@@ -4,6 +4,9 @@
 
 import { application } from "controllers/application"
 
+import CheckboxController from "controllers/checkbox_controller"
+application.register("checkbox", CheckboxController)
+
 import MenuController from "controllers/menu_controller"
 application.register("menu", MenuController)
 
