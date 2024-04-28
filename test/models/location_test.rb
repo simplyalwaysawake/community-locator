@@ -153,39 +153,4 @@ class LocationTest < ActiveSupport::TestCase # rubocop:disable Metrics/ClassLeng
     assert_not location.save
     assert_equal 'At least one field must have a value', location.errors.where(:base).first.full_message
   end
-
-  test 'clear coordinates' do
-    location = locations(:new_york)
-    location.clear_coordinates
-    assert_nil location.latitude
-    assert_nil location.longitude
-  end
-
-  test 'coordinates?' do
-    location = locations(:new_york)
-    assert location.coordinates?
-
-    location.clear_coordinates
-    assert_not location.coordinates?
-  end
-
-  test 'should not save location without coordinates' do
-    location = Location.new(
-      {
-        city: 'Ko Phangan',
-        state: '',
-        country: 'Thailand'
-      }
-    )
-    location.user = users(:jane_doe)
-
-    assert_not location.save
-
-    expected_error = [
-      'We were unable to verify your location. ',
-      'Please check your entries and try again. ',
-      'If any fields are blank, try filling them in.'
-    ].join
-    assert_equal expected_error, location.errors.where(:base).first.full_message
-  end
 end

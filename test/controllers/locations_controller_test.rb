@@ -54,19 +54,4 @@ class LocationsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to root_path
   end
-
-  test 'should clear coordinates on update in case new location cannot be verified' do
-    user = users(:john_doe)
-    sign_in user
-    patch location_url, params: {
-      location: {
-        city: 'Ko Phangan',
-        state: '',
-        country: 'Thailand',
-        postal_code: ''
-      }
-    }
-
-    assert_response :unprocessable_entity
-  end
 end
