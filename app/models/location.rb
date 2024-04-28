@@ -11,10 +11,21 @@ class Location < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
 
+  before_save :verify_coordinates
+
   def address
     address = [city, state, country].reject { |p| p.to_s.empty? }.join(', ')
     address += " #{postal_code}" if postal_code.present?
     address
+  end
+
+  def clear_coordinates
+    self.latitude = nil
+    self.longitude = nil
+  end
+
+  def coordinates?
+    latitude.present? && longitude.present?
   end
 
   private
@@ -36,5 +47,12 @@ class Location < ApplicationRecord
     return false unless %w[city state country postal_code].all? { |attr| self[attr].blank? }
 
     errors.add :base, 'At least one field must have a value'
+  end
+
+  def verify_coordinates
+    return if latitude.present? && longitude.present?
+
+    errors.add(:base, I18n.t('location_not_found'))
+    throw(:abort)
   end
 end

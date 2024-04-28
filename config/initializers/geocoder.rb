@@ -6,11 +6,25 @@ if Rails.env.test?
     [
       {
         'coordinates' => [40.7143528, -74.0059731],
-        'address' => 'New York, NY, USA',
+        'address' => 'New York, NY, USA 10001',
         'state' => 'New York',
         'state_code' => 'NY',
         'country' => 'United States',
-        'country_code' => 'US'
+        'country_code' => 'US',
+        'postal_code' => '10001'
+      }
+    ]
+  )
+
+  Geocoder::Lookup::Test.add_stub(
+    'Ko Phangan, Thailand', [
+      {
+        'coordinates' => [nil, nil],
+        'address' => 'Ko Phangan, Thailand',
+        'city' => 'Ko Phangan',
+        'state' => nil,
+        'state_code' => nil,
+        'country' => 'Thailand'
       }
     ]
   )
