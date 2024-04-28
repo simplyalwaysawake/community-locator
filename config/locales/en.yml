@@ -30,6 +30,7 @@
 en:
   hello: 'Hello world'
   location_saved: 'Location saved'
+  location_not_found: 'We were unable to verify your location. Please check your entries and try again. If any fields are blank, try filling them in.'
   profile_updated: 'Profile updated'
   options_updated: 'Options updated'
   profile_updated_pending_reconfirmation: 'Profile updated. Please check your email to confirm the changes.'
