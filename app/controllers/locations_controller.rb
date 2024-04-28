@@ -19,7 +19,7 @@ class LocationsController < ApplicationController
   end
 
   def update
-    @location = current_user.location
+    @location = current_user.location || Location.new(user: current_user)
     if @location.update(location_params)
       redirect_to root_path, notice: I18n.t('location_saved')
     else
