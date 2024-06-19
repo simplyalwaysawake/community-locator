@@ -4,7 +4,7 @@ This is Rails app that allows users to find people near them who are interested 
 
 # Getting Started
 
-Some of this documentation assumes you are working with the [Simply Always Awake deployment](https://communitylocator.simplyalwaysawake.com/) deployment.
+Some of this documentation assumes you are working with the [Simply Always Awake deployment](https://communitylocator.simplyalwaysawake.com/).
 
 ## Prerequisites
 
