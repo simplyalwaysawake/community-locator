@@ -139,7 +139,7 @@ Most notable libraries and services used by the app:
 There are two environments where the app is running: staging and production:
 
 - community-locator-staging: https://community-locator-staging-de8254249436.herokuapp.com/
-- community-locator-production: https://community-locator-production-be88ef08fdf5.herokuapp.com/
+- community-locator-production: https://communitylocator.simplyalwaysawake.com/
 
 When new commits are pushed to the `main` branch, `main` is automatically deployed to the staging environment. This
 gives us an opportunity to do some testing before deploying the changes to production.
