@@ -4,6 +4,8 @@ This is Rails app that allows users to find people near them who are interested 
 
 # Getting Started
 
+Some of this documentation assumes you are working with the [Simply Always Awake deployment](https://communitylocator.simplyalwaysawake.com/) deployment.
+
 ## Prerequisites
 
 Requirements for the software and other tools to build, test and push:
@@ -11,6 +13,12 @@ Requirements for the software and other tools to build, test and push:
 - [ruby 3.2.3](https://www.ruby-lang.org/en/)
 - [PostgreSQL](https://www.postgresql.org/)
 - [Foreman](https://github.com/ddollar/foreman)
+
+### Third-party services
+
+- [HERE](https://developer.here.com/) – geolocation
+- [Mailersend](https://www.mailersend.com/) - email
+- [Heroku](https://www.heroku.com/home) - hosting
 
 ## Setup
 
@@ -124,7 +132,7 @@ Most notable libraries and services used by the app:
 - [Devise](https://github.com/heartcombo/devise) – authentication
 - [TailwindCSS](https://github.com/rails/tailwindcss-rails) - styling
 - [Mailersend](https://mailersend.com) – email
-- [HERE]()
+- [HERE](https://developer.here.com/)
 
 # Environments and Deployments
 
