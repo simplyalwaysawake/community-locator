@@ -2,7 +2,7 @@
 
 This is a Ruby on Rails app that allows people in the [Simply Always Awake](https://simplyalwaysawake.com/) community who leave near each other to find each other.
 
-You are welcome to fork this repo for your own community. This repo is specific to the [Simply Always Awake deployment](https://communitylocator.simplyalwaysawake.com/), so there are things you will _need_ to tailor to your situation (e.g. references to Simply Always Awake, API keys) and others you may _want_ to change (e.g. use different third-party services for geolocation, email, or hosting). If you need any help or have suggestions, please [create a discussion](https://github.com/simplyalwaysawake/community-locator/discussions), [create an issue](https://github.com/simplyalwaysawake/community-locator/issues), or make the change yourself and open a pull request.
+You are welcome to fork this repo for your own community. This repo is specific to the [Simply Always Awake deployment](https://communitylocator.simplyalwaysawake.com/), so there are things you will _need_ to tailor to your situation (e.g. references to Simply Always Awake) and others you may _want_ to change (e.g. use different third-party services for geolocation, email, or hosting). If you need any help or have suggestions, please [create a discussion](https://github.com/simplyalwaysawake/community-locator/discussions), [create an issue](https://github.com/simplyalwaysawake/community-locator/issues), or make the change yourself and open a pull request.
 
 # Getting Started
 
