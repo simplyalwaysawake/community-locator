@@ -1,10 +1,10 @@
 # Community Locator
 
-This is Rails app that allows users to find people near them who are interested in waking up.
+This is a Ruby on Rails app that allows people in the [Simply Always Awake](https://simplyalwaysawake.com/) community who leave near each other to find each other.
+
+You are welcome to fork this repo for your own community. This repo is specific to the [Simply Always Awake deployment](https://communitylocator.simplyalwaysawake.com/), so there are things you will _need_ to tailor to your situation (e.g. references to Simply Always Awake, API keys) and others you may _want_ to change (e.g. use different third-party services for geolocation, email, or hosting). If you need any help or have suggestions, please [create a discussion](https://github.com/simplyalwaysawake/community-locator/discussions), [create an issue](https://github.com/simplyalwaysawake/community-locator/issues), or make the change yourself and open a pull request.
 
 # Getting Started
-
-Some of this documentation assumes you are working with the [Simply Always Awake deployment](https://communitylocator.simplyalwaysawake.com/).
 
 ## Prerequisites
 
@@ -88,7 +88,7 @@ See the [Rails testing guide](https://guides.rubyonrails.org/testing.html) for d
 
 ### Pull requests
 
-Avoid committing directly to the `main` branch. Use branches and pull requests for getting commits into `main`.
+The `main` branch is protected, so you will need to use branches and pull requests for getting commits into `main`.
 
 Tests run automatically with each pull request (except for system tests). RuboCop runs too.
 
@@ -211,10 +211,13 @@ Enable PostgreSQL:
 heroku addons:create heroku-postgresql --remote staging
 ```
 
-Created postgresql-round-86526 as DATABASE_URL
-Use heroku addons:docs heroku-postgresql to view documentation
+View Heroku PostgreSQL documentation:
 
-Enable job scheduler add-on
+```sh
+heroku addons:docs heroku-postgresql
+```
+
+Enable job scheduler add-on:
 
 ```sh
 heroku addons:create scheduler:standard -r staging
