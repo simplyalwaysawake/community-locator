@@ -19,6 +19,7 @@ Requirements for the software and other tools to build, test and push:
 - [HERE](https://developer.here.com/) – geolocation
 - [Mailersend](https://www.mailersend.com/) - email
 - [Heroku](https://www.heroku.com/home) - hosting
+- [reCAPTCHA](https://www.google.com/recaptcha/about/) - bot protection
 
 ## Setup
 
@@ -32,10 +33,12 @@ Set an environment variable for the HERE API key. Create a file named **.env.dev
 and add a line for the key:
 
 ```env
-HERE_API_KEY="XXXXXXXXXX"
+HERE_API_KEY=XXXXXXXXXX
+RECAPTCHA_SITE_KEY=XXXXXXXXXX
+RECAPTCHA_SECRET_KEY=XXXXXXXXXX
 ```
 
-Contact jeremy@haberman.dev to get the value for the key.
+Contact jeremy@haberman.dev to get the value for the keys.
 
 ## Running the app
 
@@ -133,6 +136,7 @@ Most notable libraries and services used by the app:
 - [TailwindCSS](https://github.com/rails/tailwindcss-rails) - styling
 - [Mailersend](https://mailersend.com) – email
 - [HERE](https://developer.here.com/)
+- [recaptcha](https://github.com/ambethia/recaptcha)
 
 # Environments and Deployments
 
@@ -203,6 +207,8 @@ heroku config:set HOST=XXXXXXXX --remote staging
 heroku config:set MAILERSEND_SMTP_USERNAME=XXXXXXXX --remote staging
 heroku config:set MAILERSEND_SMTP_PASSWORD=XXXXXXXX --remote staging
 heroku config:set HERE_API_KEY=XXXXXXXX --remote staging
+heroku config:set RECAPTCHA_SITE_KEY=XXXXXXXX --remote staging
+heroku config:set RECAPTCHA_SECRET_KEY=XXXXXXXX --remote staging
 ```
 
 Enable PostgreSQL:
@@ -239,6 +245,8 @@ heroku config:set HOST=XXXXXXXX --remote production
 heroku config:set MAILERSEND_SMTP_USERNAME=XXXXXXXX --remote production
 heroku config:set MAILERSEND_SMTP_PASSWORD=XXXXXXXX --remote production
 heroku config:set HERE_API_KEY=XXXXXXXX --remote production
+heroku config:set RECAPTCHA_SITE_KEY=XXXXXXXX --remote production
+heroku config:set RECAPTCHA_SECRET_KEY=XXXXXXXX --remote production
 ```
 
 Enable PostgreSQL:

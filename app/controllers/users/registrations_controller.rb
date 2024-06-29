@@ -5,6 +5,8 @@ module Users
     before_action :configure_sign_up_params, only: [:create] # rubocop:disable Rails/LexicallyScopedActionFilter
     before_action :configure_account_update_params, only: [:update]
 
+    prepend_before_action :check_captcha, only: [:create] # rubocop:disable Rails/LexicallyScopedActionFilter
+
     def edit
       if params['welcome']
         render :welcome
@@ -46,6 +48,18 @@ module Users
 
     def after_inactive_sign_up_path_for(resource) # rubocop:disable Lint/UnusedMethodArgument
       new_user_session_path
+    end
+
+    private
+
+    def check_captcha
+      return if verify_recaptcha
+
+      self.resource = resource_class.new user_params
+      resource.validate
+
+      flash[:alert] = I18n.t('recaptcha_verification_failed')
+      render :new, status: :unprocessable_entity
     end
   end
 end
