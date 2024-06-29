@@ -34,3 +34,4 @@ en:
   profile_updated: 'Profile updated'
   options_updated: 'Options updated'
   profile_updated_pending_reconfirmation: 'Profile updated. Please check your email to confirm the changes.'
+  recaptcha_verification_failed: 'reCAPTCHA verification failed'

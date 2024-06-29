@@ -58,7 +58,8 @@ module Users
       self.resource = resource_class.new user_params
       resource.validate
 
-      redirect_to new_user_registration_path, alert: 'reCAPTCHA verification failed'
+      flash[:alert] = I18n.t('recaptcha_verification_failed')
+      render :new, status: :unprocessable_entity
     end
   end
 end
