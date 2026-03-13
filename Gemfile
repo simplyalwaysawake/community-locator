@@ -14,7 +14,7 @@ gem 'sprockets-rails'
 gem 'pg'
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem 'puma', '>= 5.0'
+gem 'puma', '~> 6.4'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
@@ -26,7 +26,7 @@ gem 'turbo-rails'
 gem 'stimulus-rails'
 
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
-gem 'tailwindcss-rails'
+gem 'tailwindcss-rails', '~> 2.3'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
@@ -61,13 +61,13 @@ gem 'bootstrap-email', '~> 1.4.1'
 
 gem 'rack-attack', '~> 6.7'
 
-gem 'pagy'
+gem 'pagy', '~> 7.0'
 
 gem 'barnes'
 
 gem 'judoscale-rails'
 
-gem 'mailersend-ruby'
+gem 'mailersend-ruby', '~> 2.0'
 
 gem 'recaptcha', '~> 5.17'
 
@@ -94,4 +94,5 @@ group :test do
   gem 'mocha'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
+  gem 'minitest', '~> 5.0'
 end
