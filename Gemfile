@@ -5,10 +5,10 @@ source 'https://rubygems.org'
 ruby '3.2.3'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.1.3', '>= 7.1.3.2'
+gem 'rails', '~> 8.0'
 
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem 'sprockets-rails'
+# The modern asset pipeline for Rails [https://github.com/rails/propshaft]
+gem 'propshaft'
 
 # Use PostgreSQL as the database for Active Record
 gem 'pg'
@@ -26,7 +26,7 @@ gem 'turbo-rails'
 gem 'stimulus-rails'
 
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
-gem 'tailwindcss-rails', '~> 2.3'
+gem 'tailwindcss-rails', '~> 3.3'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
