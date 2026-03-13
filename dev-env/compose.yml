@@ -1,0 +1,19 @@
+name: "bassvids"
+
+services:
+  db:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5432:5432"
+
+  envlinks:
+    image: maxhollmann/envlinks:v0.3
+    ports:
+      - 9999:5000
+    environment:
+      LINKS_TITLE: BassVids [DEV]
+
+      LINK_00_Frontend: http://localhost:3000 icon:home
