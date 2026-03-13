@@ -24,8 +24,6 @@ class UserOptionsController < ApplicationController
     values = options_params
     values[:notify_on_new_users] = %w[on true].include? values[:notify_on_new_users]
 
-    Rails.logger.info("Values: #{values}")
-
     if @options.update(values)
       redirect_to root_path, notice: 'Options saved' # rubocop:disable Rails/I18nLocaleTexts
     else
