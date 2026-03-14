@@ -123,6 +123,8 @@ GEM
     drb (2.2.3)
     erb (6.0.2)
     erubi (1.13.1)
+    faker (3.6.1)
+      i18n (>= 1.8.11, < 2)
     ffi (1.17.3)
     ffi (1.17.3-aarch64-linux-gnu)
     ffi (1.17.3-arm-linux-gnu)
@@ -406,6 +408,7 @@ DEPENDENCIES
   debug
   devise (~> 5.0)
   dotenv
+  faker
   geocoder (~> 1.8)
   heroicon (~> 1.0)
   importmap-rails
