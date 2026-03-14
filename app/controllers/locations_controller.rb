@@ -14,7 +14,7 @@ class LocationsController < ApplicationController
     if @location.save
       redirect_to root_path, notice: I18n.t('location_saved')
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 
@@ -27,13 +27,13 @@ class LocationsController < ApplicationController
     if @location.update(location_params)
       redirect_to root_path, notice: I18n.t('location_saved')
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 
   private
 
   def location_params
-    params.require(:location).permit(:city, :state, :country, :postal_code)
+    params.expect(location: %i[city state country postal_code])
   end
 end
