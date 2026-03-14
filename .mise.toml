@@ -3,3 +3,6 @@ _.path = [
   "./dev-env",
   "./bin",
 ]
+
+[tools]
+lefthook = "latest"
