@@ -13,10 +13,15 @@ class CommunityController < ApplicationController
                unless: -> { current_user.has_seen_community? }
 
   def show
-    @location = current_user.location
     @pagy, @community = pagy(Community.for(current_user))
     @range = current_user.user_options.community_range
     render(@community.empty? ? 'empty' : 'show')
+  end
+
+  def map
+    @location = current_user.location
+    @map_community = Community.for(current_user).includes(:location)
+    @range = current_user.user_options.community_range
   end
 
   def email_community

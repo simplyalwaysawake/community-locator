@@ -7,3 +7,5 @@ pin '@hotwired/turbo-rails', to: 'turbo.min.js'
 pin '@hotwired/stimulus', to: 'stimulus.min.js'
 pin '@hotwired/stimulus-loading', to: 'stimulus-loading.js'
 pin_all_from 'app/javascript/controllers', under: 'controllers'
+pin 'leaflet', to: 'leaflet/leaflet.js', preload: false # @1.9.4
+pin 'leaflet.markercluster', to: 'leaflet/leaflet.markercluster.js', preload: false # @1.5.3
