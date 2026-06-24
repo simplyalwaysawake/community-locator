@@ -14,7 +14,7 @@ class UserOptionsController < ApplicationController
     if @options.save
       redirect_to root_path, notice: I18n.t('options_updated')
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 
@@ -24,18 +24,16 @@ class UserOptionsController < ApplicationController
     values = options_params
     values[:notify_on_new_users] = %w[on true].include? values[:notify_on_new_users]
 
-    Rails.logger.info("Values: #{values}")
-
     if @options.update(values)
       redirect_to root_path, notice: 'Options saved' # rubocop:disable Rails/I18nLocaleTexts
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 
   private
 
   def options_params
-    params.require(:user_options).permit(:user_id, :community_range, :notify_on_new_users)
+    params.expect(user_options: %i[user_id community_range notify_on_new_users])
   end
 end

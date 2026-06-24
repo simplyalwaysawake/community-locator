@@ -10,7 +10,7 @@ You are welcome to fork this repo for your own community. This repo is specific 
 
 Requirements for the software and other tools to build, test and push:
 
-- [ruby 3.2.3](https://www.ruby-lang.org/en/)
+- [ruby 3.4.9](https://www.ruby-lang.org/en/)
 - [PostgreSQL](https://www.postgresql.org/)
 - [Foreman](https://github.com/ddollar/foreman)
 

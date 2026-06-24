@@ -1,5 +1,5 @@
 <% if object&.errors&.any? %>
-  <div id="error_explanation" data-turbo-cache="false" class="bg-red-100 mt-10 sm:mx-auto sm:w-full sm:max-w-sm">  
+  <div id="error_explanation" data-turbo-temporary class="bg-red-100 mt-10 sm:mx-auto sm:w-full sm:max-w-sm">  
     <ul>
       <% object.errors.full_messages.each do |message| %>
         <li class="flex items-center justify-between px-4 py-4">

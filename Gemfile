@@ -2,19 +2,19 @@
 
 source 'https://rubygems.org'
 
-ruby '3.2.3'
+ruby '3.4.9'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.1.3', '>= 7.1.3.2'
+gem 'rails', '~> 8.0'
 
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem 'sprockets-rails'
+# The modern asset pipeline for Rails [https://github.com/rails/propshaft]
+gem 'propshaft'
 
 # Use PostgreSQL as the database for Active Record
 gem 'pg'
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem 'puma', '>= 5.0'
+gem 'puma', '~> 7.2'
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem 'importmap-rails'
@@ -26,7 +26,7 @@ gem 'turbo-rails'
 gem 'stimulus-rails'
 
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
-gem 'tailwindcss-rails'
+gem 'tailwindcss-rails', '~> 3.3'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
@@ -49,7 +49,7 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem 'devise', '~> 4.9'
+gem 'devise', '~> 5.0'
 gem 'geocoder', '~> 1.8'
 
 gem 'rubocop', '~> 1.62'
@@ -61,13 +61,13 @@ gem 'bootstrap-email', '~> 1.4.1'
 
 gem 'rack-attack', '~> 6.7'
 
-gem 'pagy'
+gem 'pagy', '~> 7.0'
 
 gem 'barnes'
 
 gem 'judoscale-rails'
 
-gem 'mailersend-ruby'
+gem 'mailersend-ruby', '~> 2.0'
 
 gem 'recaptcha', '~> 5.17'
 
@@ -75,6 +75,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
   gem 'dotenv', groups: %i[development test]
+  gem 'faker'
 end
 
 group :development do
@@ -91,6 +92,7 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'minitest', '~> 5.0'
   gem 'mocha'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'

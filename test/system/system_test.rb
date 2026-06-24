@@ -9,7 +9,7 @@ class SystemTest < ApplicationSystemTestCase
     @location = locations(:new_york)
   end
 
-  test 'registration flow' do # rubocop:disable Metrics/BlockLength
+  test 'registration flow' do
     # Sign up
     visit root_path
     click_on 'Get started'
@@ -65,7 +65,7 @@ class SystemTest < ApplicationSystemTestCase
 
     # Send email with list
     click_on 'Email this list to me'
-    sleep 3 # Wait for email to be sent
+    assert_text 'Email sent' # Wait for page response before checking delivery
     assert ActionMailer::Base.deliveries.last.html_part.body.match(/John Doe/)
 
     # Sign out

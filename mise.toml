@@ -1,0 +1,10 @@
+[env]
+_.path = [
+  "./dev-env",
+  "./bin",
+]
+
+[tools]
+ruby = "3.4.9"
+heroku = "latest"
+lefthook = "latest"

@@ -14,7 +14,7 @@ filename = ARGV[1]
 username = ARGV[2]
 password = ARGV[3]
 
-CSV.foreach(filename, headers: true) do |row| # rubocop:disable Metrics/BlockLength
+CSV.foreach(filename, headers: true) do |row|
   email = row['Email Address']
   first_name = row['First Name']
   last_name = row['Last Name']

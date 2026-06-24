@@ -24,7 +24,7 @@ module Users
                  end
         redirect_to root_path, notice:
       else
-        render :edit, status: :unprocessable_entity
+        render :edit, status: :unprocessable_content
       end
     end
 
@@ -43,7 +43,7 @@ module Users
     end
 
     def user_params
-      params.require(:user).permit(:name, :email, :telegram, :password)
+      params.expect(user: %i[name email telegram password])
     end
 
     def after_inactive_sign_up_path_for(resource) # rubocop:disable Lint/UnusedMethodArgument
@@ -59,7 +59,7 @@ module Users
       resource.validate
 
       flash[:alert] = I18n.t('recaptcha_verification_failed')
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 end

@@ -27,7 +27,7 @@ class NewNearbyUserNotificationTest < ActiveSupport::TestCase
     end
   end
 
-  test 'should notity on two new people' do # rubocop:disable Metrics/BlockLength
+  test 'should notity on two new people' do
     user = users(:john_doe)
     user.update(has_seen_community: true)
     Community.new(user).save_current_nearby_users

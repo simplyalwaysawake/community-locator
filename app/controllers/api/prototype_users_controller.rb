@@ -8,14 +8,14 @@ module API
       if @prototype_user.save
         render json: @prototype_user, status: :created
       else
-        render json: @prototype_user.errors, status: :unprocessable_entity
+        render json: @prototype_user.errors, status: :unprocessable_content
       end
     end
 
     private
 
     def prototype_user_params
-      params.require(:prototype_user).permit(:email, :first_name, :last_name)
+      params.expect(prototype_user: %i[email first_name last_name])
     end
   end
 end

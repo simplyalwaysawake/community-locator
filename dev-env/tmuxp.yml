@@ -1,0 +1,24 @@
+session_name: community-locator
+windows:
+- window_name: all-processes
+  layout: tiled
+  panes:
+    - shell_command:
+      - tmux set -gw pane-border-status top
+      - printf '\033]2;%s\033\\' 'Docker services'
+      - alias cmd="docker compose up"
+      - cmd
+
+    - shell_command:
+      - tmux set -gw pane-border-status top
+      - printf '\033]2;%s\033\\' 'Rails'
+      - cd ..
+      - alias cmd="bin/rails s"
+      - cmd
+
+    - shell_command:
+      - tmux set -gw pane-border-status top
+      - printf '\033]2;%s\033\\' 'Tailwind'
+      - cd ..
+      - alias cmd="bin/rails tailwindcss:watch"
+      - cmd
