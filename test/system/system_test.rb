@@ -9,7 +9,7 @@ class SystemTest < ApplicationSystemTestCase
     @location = locations(:new_york)
   end
 
-  test 'registration flow' do # rubocop:disable Metrics/BlockLength
+  test 'registration flow' do
     # Sign up
     visit root_path
     click_on 'Get started'
