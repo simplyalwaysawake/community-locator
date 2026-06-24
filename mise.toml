@@ -5,4 +5,5 @@ _.path = [
 ]
 
 [tools]
+heroku = "latest"
 lefthook = "latest"
