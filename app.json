@@ -1,6 +1,6 @@
 {
   "stack": "heroku-26",
-  "buildpacks": [{ "url": "heroku/ruby" }],
+  "buildpacks": [{ "url": "heroku/nodejs" }, { "url": "heroku/ruby" }],
   "addons": ["heroku-postgresql:mini"],
   "env": {
     "HERE_API_KEY": { "required": true },

@@ -71,10 +71,12 @@ gem 'mailersend-ruby', '~> 2.0'
 
 gem 'recaptcha', '~> 5.17'
 
+gem 'activeadmin', '4.0.0.beta22'
+
 # Sentry
-gem "stackprof"
-gem "sentry-ruby"
-gem "sentry-rails"
+gem 'sentry-rails'
+gem 'sentry-ruby'
+gem 'stackprof'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
