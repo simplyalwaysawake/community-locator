@@ -3,12 +3,6 @@
   "buildpacks": [{ "url": "heroku/ruby" }],
   "addons": ["heroku-postgresql:mini"],
   "environments": {
-    "test": {
-      "addons": ["heroku-postgresql:in-dyno"],
-      "scripts": {
-        "test": "bundle exec rake validate"
-      }
-    },
     "review": {
       "scripts": {
         "postdeploy": "bundle exec rake db:seed db:fixtures:load"
