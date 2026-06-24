@@ -1,51 +1,46 @@
-<%- title "My Community" %>
-<div class="px-4 sm:px-6 lg:px-8 pt-8">
-  <div class="flex gap-2 mb-4">
-    <%= link_to "List", community_path, class: "px-3 py-1.5 text-sm font-medium rounded-md bg-indigo-600 text-white" %>
-    <%= link_to "Map", community_map_path, class: "px-3 py-1.5 text-sm font-medium rounded-md bg-white text-gray-700 ring-1 ring-inset ring-gray-300 hover:bg-gray-50" %>
-  </div>
-  <div class="-mx-4 sm:-mx-0">
-    <table class="min-w-full divide-y divide-gray-300">
-      <thead>
+<%= render layout: "community/frame", locals: { active: :list } do %>
+<div class="-mx-4 sm:-mx-0">
+  <table class="min-w-full divide-y divide-gray-300">
+    <thead>
+      <tr>
+        <th scope="col" class="hidden py-3.5 pr-3 text-left text-sm font-semibold text-gray-900 sm:table-cell">Name</th>
+        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Location</th>
+        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Email</th>
+        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Telegram</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200 bg-white">
+      <% @community.each do |user| %>
         <tr>
-          <th scope="col" class="hidden py-3.5 pr-3 text-left text-sm font-semibold text-gray-900 sm:table-cell">Name</th>
-          <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Location</th>
-          <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Email</th>
-          <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:table-cell">Telegram</th>
+          <td class="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-0">
+            <%= display_name(user) %>
+            <dl class="font-normal lg:hidden">
+              <dt class="sr-only">Location</dt>
+              <dd class="mt-1 truncate text-gray-700"><%= short_address(user.location) %></dd>
+              <dt class="sr-only sm:hidden">Email</dt>
+              <dd class="mt-1 truncate text-gray-500 sm:hidden">Email: <%= user.email %></dd>
+              <dd class="mt-1 truncate text-gray-500 sm:hidden">Telegram: <%= display_telegram(user) %></dd>
+            </dl>
+          </td>
+          <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell"><%= short_address(user.location) %></td>
+          <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell"><%= user.email %></td>
+          <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell"><%= display_telegram(user) %></td>
         </tr>
-      </thead>
-      <tbody class="divide-y divide-gray-200 bg-white">
-        <% @community.each do |user| %>
-          <tr>
-            <td class="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-0">
-              <%= display_name(user) %>
-              <dl class="font-normal lg:hidden">
-                <dt class="sr-only">Location</dt>
-                <dd class="mt-1 truncate text-gray-700"><%= short_address(user.location) %></dd>
-                <dt class="sr-only sm:hidden">Email</dt>
-                <dd class="mt-1 truncate text-gray-500 sm:hidden">Email: <%= user.email %></dd>
-                <dd class="mt-1 truncate text-gray-500 sm:hidden">Telegram: <%= display_telegram(user) %></dd>
-              </dl>
-            </td>
-            <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell"><%= short_address(user.location) %></td>
-            <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell"><%= user.email %></td>
-            <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell"><%= display_telegram(user) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <% if @pagy.count > 10 %>
-      <div class="flex justify-center mt-2">
-        <div class="mt-4 justify-center"><%== pagy_nav(@pagy) %></div>
-      </div>
-      <div class="flex justify-center mt-2 text-sm text-gray-500">
-        <div class="justify-center"><%== pagy_info(@pagy) %></div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </tbody>
+  </table>
+  <% if @pagy.count > 10 %>
+    <div class="flex justify-center mt-2">
+      <div class="mt-4 justify-center"><%== pagy_nav(@pagy) %></div>
+    </div>
+    <div class="flex justify-center mt-2 text-sm text-gray-500">
+      <div class="justify-center"><%== pagy_info(@pagy) %></div>
+    </div>
+  <% end %>
 </div>
-<div class="ml-4 sm:ml-0 px-4 sm:px-6 lg:px-8 pt-8">
+<div class="pt-8">
   <div class="-mx-4 sm:-mx-0 min-w-full">
     <%= link_to "Email this list to me", email_community_path, data: { "turbo-method": :post }, class: "justify-center mt-4 rounded-md bg-indigo-500 text-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-indigo-600" %>
   </div>
 </div>
+<% end %>

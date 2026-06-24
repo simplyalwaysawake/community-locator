@@ -1,0 +1,8 @@
+<%
+  active_classes = "px-3 py-1.5 text-sm font-medium rounded-md bg-indigo-600 text-white"
+  inactive_classes = "px-3 py-1.5 text-sm font-medium rounded-md bg-white text-gray-700 ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+%>
+<div class="flex gap-2 mb-4">
+  <%= link_to "List", community_path, class: active == :list ? active_classes : inactive_classes %>
+  <%= link_to "Map", community_map_path, class: active == :map ? active_classes : inactive_classes %>
+</div>
