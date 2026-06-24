@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Restore a PostgreSQL custom-format dump into the development database.
+# Usage: dev-env/db-restore-dump [path/to/dump]   (defaults to ./latest.dump)
+set -euo pipefail
+
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+ROOT_DIR="$( cd "$SCRIPT_DIR/.." &> /dev/null && pwd )"
+
+DUMP="${1:-$ROOT_DIR/latest.dump}"
+DB="community_locator_development"
+HOST="localhost"
+USER="postgres"
+export PGPASSWORD="pass"
+
+if [[ ! -f "$DUMP" ]]; then
+  echo "Dump file not found: $DUMP" >&2
+  exit 1
+fi
+
+echo "Restoring '$DUMP' into '$DB'..."
+
+# Terminate active connections, then drop and recreate the database.
+psql -h "$HOST" -U "$USER" -d postgres \
+  -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname='$DB' AND pid<>pg_backend_pid();" \
+  -c "DROP DATABASE IF EXISTS $DB;" \
+  -c "CREATE DATABASE $DB OWNER $USER;"
+
+pg_restore -h "$HOST" -U "$USER" -d "$DB" \
+  --no-owner --no-privileges --clean --if-exists "$DUMP"
+
+echo "Done. Restored into '$DB'."

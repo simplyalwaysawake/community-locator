@@ -28,6 +28,14 @@ class Location < ApplicationRecord
     latitude.present? && longitude.present?
   end
 
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[id city state country postal_code latitude longitude created_at updated_at]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[user]
+  end
+
   private
 
   def sanitize_fields
