@@ -18,3 +18,6 @@ application.register("selected-nav", SelectedNavController)
 
 import ShowPasswordToggleController from "controllers/show_password_toggle_controller"
 application.register("show-password-toggle", ShowPasswordToggleController)
+
+import MapController from "controllers/map_controller"
+application.register("map", MapController)

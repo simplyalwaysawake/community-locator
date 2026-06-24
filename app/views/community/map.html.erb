@@ -1,0 +1,30 @@
+<%- title "My Community" %>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "leaflet/leaflet", "leaflet/leaflet-markercluster", "leaflet/leaflet-markercluster-default", "data-turbo-track": "reload" %>
+<% end %>
+<%
+  map_center = { lat: @location.latitude, lng: @location.longitude }.to_json
+  map_markers = @map_community.map { |u|
+    { lat: u.location.latitude, lng: u.location.longitude,
+      name: display_name(u), city: short_address(u.location) }
+  }.to_json
+%>
+<div class="px-4 sm:px-6 lg:px-8 pt-8">
+  <div class="flex gap-2 mb-4">
+    <%= link_to "List", community_path, class: "px-3 py-1.5 text-sm font-medium rounded-md bg-white text-gray-700 ring-1 ring-inset ring-gray-300 hover:bg-gray-50" %>
+    <%= link_to "Map", community_map_path, class: "px-3 py-1.5 text-sm font-medium rounded-md bg-indigo-600 text-white" %>
+  </div>
+  <%
+    map_icons = {
+      icon: asset_path('leaflet/images/marker-icon.png'),
+      icon2x: asset_path('leaflet/images/marker-icon-2x.png'),
+      shadow: asset_path('leaflet/images/marker-shadow.png')
+    }.to_json
+  %>
+  <div data-controller="map"
+       data-map-center-value="<%= map_center %>"
+       data-map-markers-value="<%= map_markers %>"
+       data-map-icons-value="<%= map_icons %>"
+       data-map-range-value="<%= @range %>"
+       class="h-[900px] max-h-[80vh] rounded-lg overflow-hidden"></div>
+</div>

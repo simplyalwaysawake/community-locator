@@ -14,7 +14,7 @@ class Community
       range = @user.user_options&.community_range || UserOptions::DEFAULT_COMMUNITY_RANGE
       User.where(id: @user.location.nearbys(range).map(&:user_id))
     else
-      []
+      User.none
     end
   end
 
