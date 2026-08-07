@@ -1,7 +1,12 @@
 {
   "stack": "heroku-26",
   "buildpacks": [{ "url": "heroku/nodejs" }, { "url": "heroku/ruby" }],
-  "addons": ["heroku-postgresql:mini"],
+  "addons": [
+    {
+      "plan": "heroku-postgresql:mini",
+      "options": { "version": "17" }
+    }
+  ],
   "env": {
     "HERE_API_KEY": { "required": true },
     "RECAPTCHA_SITE_KEY": { "required": true },
