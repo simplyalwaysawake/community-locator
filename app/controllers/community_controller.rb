@@ -9,7 +9,7 @@ class CommunityController < ApplicationController
   before_action :validate_options!
 
   after_action :save_current_nearby_users,
-               only: %i[show],
+               only: %i[show map],
                unless: -> { current_user.has_seen_community? }
 
   def show
@@ -21,7 +21,6 @@ class CommunityController < ApplicationController
   def map
     @location = current_user.location
     @map_community = Community.for(current_user).includes(:location)
-    @range = current_user.user_options.community_range
   end
 
   def email_community

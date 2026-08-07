@@ -5,19 +5,23 @@ export default class extends Controller {
   static values = {
     center: Object,
     markers: Array,
-    icons: Object,
-    range: Number
+    icons: Object
   }
 
   async connect() {
+    const connection = Symbol()
+    this.connection = connection
+
     // Load leaflet only when a map actually connects, so the library isn't
     // fetched on every page (the controller is eager-registered in index.js).
     const L = (await import("leaflet")).default
+    if (this.connection !== connection) return
 
     // leaflet.markercluster ships no ESM build — it augments a global `L`.
     // Expose it, then load the plugin so it can attach L.markerClusterGroup.
     window.L = L
     await import("leaflet.markercluster")
+    if (this.connection !== connection) return
 
     const { lat, lng } = this.centerValue
     this.map = L.map(this.element).setView([lat, lng], 8)
@@ -83,11 +87,9 @@ export default class extends Controller {
     return row
   }
 
-  invalidateSize() {
-    if (this.map) this.map.invalidateSize()
-  }
-
   disconnect() {
+    this.connection = null
+
     if (this.map) {
       this.map.remove()
       this.map = null
