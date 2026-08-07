@@ -22,3 +22,7 @@ test:
 production:
   <<: *default
   database: community_locator_production
+
+# Heroku review apps; connection comes from DATABASE_URL.
+review:
+  <<: *default

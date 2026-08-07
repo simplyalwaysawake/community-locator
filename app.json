@@ -15,6 +15,10 @@
       }
     },
     "review": {
+      "env": {
+        "RAILS_ENV": "review",
+        "RACK_ENV": "review"
+      },
       "scripts": {
         "postdeploy": "bundle exec rake db:seed"
       },
