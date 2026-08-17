@@ -1,7 +1,12 @@
 {
   "stack": "heroku-26",
   "buildpacks": [{ "url": "heroku/nodejs" }, { "url": "heroku/ruby" }],
-  "addons": ["heroku-postgresql:mini"],
+  "addons": [
+    {
+      "plan": "heroku-postgresql:mini",
+      "options": { "version": "15" }
+    }
+  ],
   "env": {
     "HERE_API_KEY": { "required": true },
     "RECAPTCHA_SITE_KEY": { "required": true },
@@ -15,6 +20,10 @@
       }
     },
     "review": {
+      "env": {
+        "RAILS_ENV": "review",
+        "RACK_ENV": "review"
+      },
       "scripts": {
         "postdeploy": "bundle exec rake db:seed"
       },

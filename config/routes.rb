@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   resolve('UserOptions') { [:user_options] }
 
   get 'community' => 'community#show'
+  get 'community/map' => 'community#map', as: :community_map
   post 'email_community' => 'community#email_community', as: :email_community
 
   get 'terms' => 'terms#show'
