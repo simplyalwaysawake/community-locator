@@ -10,6 +10,7 @@ async function initializeCommunityMap(rootElement) {
   const clearButton = rootElement.querySelector("[data-clear-selection]")
   const copyEmailsButton = rootElement.querySelector("[data-copy-emails]")
   const downloadButton = rootElement.querySelector("[data-download-selection]")
+  const emailSelectionCountElement = rootElement.querySelector("[data-email-selection-count]")
   const selectionCountElement = rootElement.querySelector("[data-selection-count]")
 
   let map
@@ -225,8 +226,15 @@ async function initializeCommunityMap(rootElement) {
       })
 
       selectedIds = nextSelectedIds
-      copyEmailsButton.disabled = selectedIds.size === 0
+      const selectedEmailCount = users.filter(user =>
+        selectedIds.has(user.id) && user.email
+      ).length
+
+      copyEmailsButton.disabled = selectedEmailCount === 0
       downloadButton.disabled = selectedIds.size === 0
+      emailSelectionCountElement.textContent = selectedIds.size > 0
+        ? " (" + selectedEmailCount.toLocaleString() + ")"
+        : ""
       selectionCountElement.textContent = selectedIds.size > 0
         ? " (" + selectedIds.size.toLocaleString() + ")"
         : ""
@@ -264,11 +272,10 @@ async function initializeCommunityMap(rootElement) {
     }
 
     async function copySelectedEmails() {
-      if (selectedIds.size === 0) return
-
       const emails = sortedSelectedUsers()
         .map(user => user.email)
         .filter(Boolean)
+      if (emails.length === 0) return
 
       try {
         await writeClipboard(emails.join(", "))

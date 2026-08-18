@@ -58,7 +58,8 @@ class AdminAccessTest < ActionDispatch::IntegrationTest
     assert_select '[data-admin-community-map][data-members-url]'
     assert_select '[data-draw-shape="Circle"]'
     assert_select '[data-draw-shape="Polygon"]'
-    assert_select '[data-copy-emails]'
+    assert_select '[data-copy-emails].aa-map-button-primary'
+    assert_select '[data-email-selection-count]'
     assert_select '[data-download-selection]'
     assert_select 'script[src*="es-module-shims"]'
     assert_select 'script[type="esms-options"]', text: /shimMode/

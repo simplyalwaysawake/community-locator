@@ -56,9 +56,12 @@ class AdminCommunityMapTest < ApplicationSystemTestCase
 
     selection_status = find('[data-map-status]').text
     selected_count = selection_status.to_i
+    selected_email_count = find('[data-email-selection-count]').text.delete('()').to_i
     assert_predicate selected_count, :positive?
     assert_match(/of #{mapped_locations} mapped members selected/, selection_status)
-    assert_button 'Copy emails', disabled: false
+    assert_predicate selected_email_count, :positive?
+    assert_button "Copy emails (#{selected_email_count})", disabled: false
+    assert_selector '[data-copy-emails].aa-map-button-primary'
     assert_button "Download CSV (#{selected_count})", disabled: false
 
     page.execute_script <<~JS
@@ -81,10 +84,11 @@ class AdminCommunityMapTest < ApplicationSystemTestCase
     assert_equal "Name,Email,Telegram\r\n", csv.lines.first
     assert_equal selected_count + 1, csv.lines.size
 
-    expected_emails = CSV
+    selected_emails = CSV
                       .parse(csv.delete_prefix("\uFEFF"), headers: true)
-                      .map { |row| row.fetch('Email') }
-                      .join(', ')
+                      .filter_map { |row| row.fetch('Email').presence }
+    expected_emails = selected_emails.join(', ')
+    assert_equal selected_email_count, selected_emails.size
     page.execute_script <<~JS
       window.__copiedEmails = null
       Object.defineProperty(navigator, "clipboard", {
@@ -92,9 +96,9 @@ class AdminCommunityMapTest < ApplicationSystemTestCase
         value: { writeText: async (text) => { window.__copiedEmails = text } }
       })
     JS
-    click_button 'Copy emails'
+    click_button "Copy emails (#{selected_email_count})"
     assert_equal expected_emails, page.evaluate_script('window.__copiedEmails')
-    assert_text "Copied #{selected_count} email addresses."
+    assert_text "Copied #{selected_email_count} email addresses."
 
     click_button 'Clear selection'
     assert_button 'Copy emails', disabled: true
