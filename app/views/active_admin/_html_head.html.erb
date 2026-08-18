@@ -1,0 +1,20 @@
+<%= stylesheet_link_tag "active_admin" %>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
+<% # On page load or when changing themes, best to add inline in `head` to avoid FOUC %>
+<%= javascript_tag nonce: true do %>
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+<% end %>
+<script type="esms-options">
+  { "shimMode": true }
+</script>
+<%= javascript_include_tag "es-module-shims", async: true %>
+<%= tag.script ActiveAdmin.importmap.to_json(resolver: self).html_safe,
+               type: "importmap-shim",
+               "data-turbo-track": "reload" %>
+<%= tag.script 'import "active_admin"'.html_safe, type: "module-shim" %>

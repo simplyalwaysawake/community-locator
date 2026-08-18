@@ -1,3 +1,143 @@
 @import "tailwindcss";
 
 @config "../../../tailwind-active_admin.config.js";
+
+body:has([data-admin-community-map]) [data-test-page-header] {
+  display: none;
+}
+
+body:has([data-admin-community-map]) [data-test-page-content] {
+  padding-top: 1.5rem;
+}
+
+.aa-map-button {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  color: #111827;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.875rem;
+  font-weight: 600;
+  gap: 0.25rem;
+  justify-content: center;
+  line-height: 1.25rem;
+  min-height: 2.5rem;
+  padding: 0.5rem 0.875rem;
+}
+
+.aa-map-button:hover:not(:disabled) {
+  background: #f9fafb;
+}
+
+.aa-map-button:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+.aa-map-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.aa-map-button[aria-pressed="true"] {
+  background: #e0e7ff;
+  border-color: #6366f1;
+  color: #3730a3;
+}
+
+.aa-map-button-primary {
+  background: #4f46e5;
+  border-color: #4f46e5;
+  color: #fff;
+}
+
+.aa-map-button-primary:hover:not(:disabled) {
+  background: #4338ca;
+}
+
+.aa-map-button-secondary {
+  color: #4b5563;
+}
+
+.admin-community-map-marker,
+.admin-community-map-selected-marker {
+  border: 2px solid #fff;
+  border-radius: 9999px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 45%);
+}
+
+.admin-community-map-marker {
+  background: #2563eb;
+}
+
+.admin-community-map-selected-marker {
+  background: #f97316;
+  box-shadow: 0 0 0 3px rgb(249 115 22 / 35%);
+}
+
+.marker-cluster-selected {
+  background-color: rgb(249 115 22 / 45%);
+}
+
+.marker-cluster-selected div {
+  background-color: #f97316;
+  color: #fff;
+}
+
+/* Leaflet-Geoman drawing handles. The map uses custom buttons rather than
+   Geoman's toolbar, so only its layer styles are needed. */
+.marker-icon {
+  background-color: #fff;
+  border: 1px solid #3388ff;
+  border-radius: 50%;
+  height: 14px !important;
+  margin: -8px 0 0 -8px !important;
+  outline: 0;
+  transition: opacity ease 0.3s;
+  width: 14px !important;
+}
+
+.marker-icon-middle {
+  height: 10px !important;
+  margin: -6px 0 0 -6px !important;
+  opacity: 0.7;
+  width: 10px !important;
+}
+
+.cursor-marker {
+  cursor: crosshair;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cursor-marker.visible {
+  opacity: 1 !important;
+}
+
+.geoman-draw-cursor,
+.geoman-draw-cursor .leaflet-interactive {
+  cursor: crosshair;
+}
+
+.dark .aa-map-button {
+  background: #111827;
+  border-color: #4b5563;
+  color: #f9fafb;
+}
+
+.dark .aa-map-button:hover:not(:disabled) {
+  background: #1f2937;
+}
+
+.dark .aa-map-button[aria-pressed="true"] {
+  background: #312e81;
+  border-color: #818cf8;
+  color: #e0e7ff;
+}
+
+.dark .aa-map-button-primary {
+  background: #4f46e5;
+  border-color: #6366f1;
+}

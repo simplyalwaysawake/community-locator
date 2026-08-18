@@ -1,0 +1,3 @@
+// @turf/boolean-point-in-polygon@7.4.0 downloaded from https://ga.jspm.io/npm:@turf/boolean-point-in-polygon@7.4.0/dist/esm/index.js
+
+import e from"point-in-polygon-hao";import{getCoord as t,getGeom as n}from"@turf/invariant";function r(r,a,o={}){if(!r)throw Error(`point is required`);if(!a)throw Error(`polygon is required`);let s=t(r),c=n(a),l=c.type,u=a.bbox,d=c.coordinates;if(u&&i(s,u)===!1)return!1;l===`Polygon`&&(d=[d]);for(var f=0;f<d.length;++f){let t=e(s,d[f]);if(t===0&&!o.ignoreBoundary||t)return!0}return!1}function i(e,t){return t[0]<=e[0]&&t[1]<=e[1]&&t[2]>=e[0]&&t[3]>=e[1]}var a=r;export{r as booleanPointInPolygon,a as default};
