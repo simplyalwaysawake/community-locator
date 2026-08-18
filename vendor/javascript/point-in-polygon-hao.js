@@ -1,0 +1,3 @@
+// point-in-polygon-hao@1.2.4 downloaded from https://ga.jspm.io/npm:point-in-polygon-hao@1.2.4/dist/esm/index.js
+
+import{orient2d as r}from"robust-predicates";function pointInPolygon(a,t){var n;var o;var e=0;var v;var i;var f;var s;var l;var u;var g;var p=a[0];var d=a[1];var h=t.length;for(n=0;n<h;n++){o=0;var m=t[n];var c=m.length-1;u=m[0];if(u[0]!==m[c][0]&&u[1]!==m[c][1])throw new Error("First and last coordinates in a ring must be the same");i=u[0]-p;f=u[1]-d;for(o;o<c;o++){g=m[o+1];s=g[0]-p;l=g[1]-d;if(f===0&&l===0){if(s<=0&&i>=0||i<=0&&s>=0)return 0}else if(l>=0&&f<=0||l<=0&&f>=0){v=r(i,s,f,l,0,0);if(v===0)return 0;(v>0&&l>0&&f<=0||v<0&&l<=0&&f>0)&&e++}u=g;f=l;i=s}}return e%2!==0}export{pointInPolygon as default};

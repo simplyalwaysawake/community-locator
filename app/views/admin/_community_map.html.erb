@@ -1,0 +1,71 @@
+<%= stylesheet_link_tag "leaflet/leaflet",
+                        "leaflet/leaflet-markercluster",
+                        "leaflet/leaflet-markercluster-default" %>
+
+<section class="col-span-full min-w-0 space-y-4"
+         data-admin-community-map
+         data-members-url="<%= members_url %>">
+  <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-900">
+    <div class="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
+      <div>
+        <h2 class="text-base font-semibold text-gray-950 dark:text-white">Select community members</h2>
+        <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
+          Draw one circle or polygon. Drawing a new area replaces the previous selection.
+        </p>
+        <p class="mt-2 text-sm font-medium text-gray-700 dark:text-gray-200"
+           data-map-status
+           aria-live="polite">
+          Loading community members…
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2">
+        <button type="button"
+                class="aa-map-button"
+                data-draw-shape="Circle"
+                disabled>
+          Draw circle
+        </button>
+        <button type="button"
+                class="aa-map-button"
+                data-draw-shape="Polygon"
+                disabled>
+          Draw polygon
+        </button>
+        <button type="button"
+                class="aa-map-button aa-map-button-secondary"
+                data-clear-selection
+                disabled>
+          Clear selection
+        </button>
+        <button type="button"
+                class="aa-map-button aa-map-button-primary"
+                data-copy-emails
+                disabled>
+          Copy emails
+          <span data-email-selection-count></span>
+        </button>
+        <button type="button"
+                class="aa-map-button aa-map-button-primary"
+                data-download-selection
+                disabled>
+          Download CSV
+          <span data-selection-count></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="hidden rounded-lg border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:border-red-800 dark:bg-red-950 dark:text-red-200"
+       data-map-error
+       role="alert"></div>
+
+  <div class="relative overflow-hidden rounded-lg border border-gray-200 bg-gray-100 shadow-sm dark:border-gray-700 dark:bg-gray-900">
+    <div class="h-[70vh] min-h-[500px] w-full"
+         data-map
+         role="application"
+         aria-label="World map of community members"></div>
+  </div>
+</section>
+
+<%= javascript_include_tag "admin/community_map", type: "module-shim" %>

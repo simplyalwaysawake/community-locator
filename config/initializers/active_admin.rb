@@ -122,7 +122,7 @@ ActiveAdmin.setup do |config|
   # roots for each namespace.
   #
   # Default:
-  config.root_to = 'users#index'
+  config.root_to = 'community_map#index'
 
   # == Admin Comments
   #
@@ -275,3 +275,5 @@ ActiveAdmin.setup do |config|
   #
   # config.order_clause = MyOrderClause
 end
+
+ActiveAdmin.importmap.draw(Rails.root.join('config/active_admin_importmap.rb'))
